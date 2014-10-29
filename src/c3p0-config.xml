@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<c3p0-config>
+    <default-config>
+    		<property name="driverClass">com.mysql.jdbc.Driver</property>
+       		<property name="user">root</property>
+      		<property name="password">123456</property>
+      		<property name="jdbcUrl">jdbc:mysql://127.0.0.1:3306/maventest</property>
+			<!-- Hibernate推荐的c3p0设置 -->
+  			<!-- 需要c3p0.jar -->
+			<!-- 最小连接数 -->
+			<property name="minPoolSize" value="10" />
+			<!-- 最大连接数, 超出报错 -->
+			<property name="maxPoolSize" value="200" />
+			<!-- 获得连接的超时时间, 如果超过这个时间, 会抛出异常, 单位秒 -->
+			<property name="checkoutTimeout" value="600" />
+			<!-- 缓存500个预编译的语句 -->
+			<property name="maxStatements" value="500" />
+			<!-- 每隔120秒检查连接池中的空闲连接，和mysql配合使用是要小于28800s（8小时）-->
+			<property name="idleConnectionTestPeriod" value="120" />
+			<!-- 网上的额外设置 -->
+			<!--最大空闲时间, 60秒内未使用则连接被丢弃。 若为0则永不丢弃。 Default: 
+				0 和mysql配合使用是要小于28800s（8小时）-->
+			<property name="maxIdleTime" value="60" />
+			<!-- 当连接池里面的连接用完的时候, C3P0一下获取的新的连接数 -->
+			<property name="acquireIncrement" value="2" />
+	</default-config>
+</c3p0-config>
