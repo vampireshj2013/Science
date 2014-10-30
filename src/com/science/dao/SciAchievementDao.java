@@ -39,7 +39,7 @@ public class SciAchievementDao {
 		//
 		if(sAchievement.getUser()==null){
 			preStatement.setString(10,null);
-		}
+		} 
 		else{
 			preStatement.setInt(10,sAchievement.getUser().getUserId());
 		}
