@@ -4,7 +4,7 @@
     		<property name="driverClass">com.mysql.jdbc.Driver</property>
        		<property name="user">root</property>
       		<property name="password">123456</property>
-      		<property name="jdbcUrl">jdbc:mysql://127.0.0.1:3306/maventest</property>
+      		<property name="jdbcUrl">jdbc:mysql://127.0.0.1:3306/mydb</property>
 			<!-- Hibernate推荐的c3p0设置 -->
   			<!-- 需要c3p0.jar -->
 			<!-- 最小连接数 -->

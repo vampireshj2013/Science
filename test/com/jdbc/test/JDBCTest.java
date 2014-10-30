@@ -41,31 +41,5 @@ public class JDBCTest  {
 			}
 		}
 	}
-//	@Test
-//	public void test2(){
-//		System.out.println("!");
-//				new Thread(new Runnable() {
-//					
-//					@Override
-//					public void run() {
-//						Connection connection = null;
-//						try {
-//							connection = JDBCUtil.getMySqlConnection();
-//							System.out.println(connection);
-//						} catch (SQLException e) {
-//							// TODO Auto-generated catch block
-//							e.printStackTrace();
-//						}
-//						finally{
-//							try {
-//								JDBCUtil.close(connection);
-//							} catch (SQLException e) {
-//								// TODO Auto-generated catch block
-//								e.printStackTrace();
-//							}
-//						}
-//						
-//					}
-//				}).start();
-//	}
+
 }
