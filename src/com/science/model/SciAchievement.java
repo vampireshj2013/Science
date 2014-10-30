@@ -14,7 +14,7 @@ public class SciAchievement {
 	private int attentionNum;//
 	private int consulttationNum;//
 	private String descri;
-	private String attachment;
+	private String attachment; 
 	
 	private Maturity maturity;
 	private Cooperation cooperation;
