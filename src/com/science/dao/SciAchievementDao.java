@@ -36,6 +36,7 @@ public class SciAchievementDao {
 		preStatement.setString(7, sAchievement.getConsulttationNum());
 		preStatement.setString(8, sAchievement.getDesc());
 		preStatement.setString(9, sAchievement.getAttachment());
+		//
 		if(sAchievement.getUser()==null){
 			preStatement.setString(10,null);
 		}
