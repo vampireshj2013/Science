@@ -15,15 +15,33 @@ public class SciAchievementTest {
 	private SciAchievementDao dao ;
 	@Test
 	public void addSciAchievement(){
-//		dao = new SciAchievementDao();
-//		SciAchievement sciAchievement = new SciAchievement();
-//		sciAchievement.setAttachment("attachment");
-//		sciAchievement.setKey("key");
-//		sciAchievement.setConsulttationNum("123");
-//		User user = new User();
-//		user.setUserId(1);
-//		sciAchievement.setUser(user);
-//		dao.addSciAchievement(sciAchievement);
+		dao = new SciAchievementDao();
+		for(int i =0;i<10;i++){
+			SciAchievement sciAchievement = new SciAchievement();
+			sciAchievement.setAttachment("attachment-123");
+			sciAchievement.setSearchkey("searchKey22whj");
+			sciAchievement.setConsulttationNum(123);
+			sciAchievement.setTransFee(123.45678);
+			sciAchievement.setDescri("descri"+i);
+			User user = new User();
+			Maturity maturity = new Maturity();
+			Shop shop = new Shop();
+			Cooperation cooperation =new Cooperation();
+			Industry industry = new Industry();
+			user.setUserId(1);
+			maturity.setMaturityId(1);
+			shop.setShopId(1);
+			cooperation.setCooperationId(1);
+			industry.setIndustryId(1);
+			 
+			sciAchievement.setUser(user);
+			sciAchievement.setIndustry(industry);
+			sciAchievement.setCooperation(cooperation);
+			sciAchievement.setShop(shop);
+			sciAchievement.setMaturity(maturity);
+			dao.addSciAchievement(sciAchievement);
+		}
+		
 	}
 	@Test
 	public void updateSciA1chievement(){
@@ -53,6 +71,18 @@ public class SciAchievementTest {
 		
 		boolean result = dao.updateSciAchievement(sciAchievement);
 		System.out.println(result);
+	}
+	@Test
+	public void quirySciA1chievement(){
+		dao = new SciAchievementDao();
+		System.out.println(dao.inquirySciAchievementById(1).getDescri());
+	}
+	@Test
+	public void searchSciAchievementByCondition(){
+		dao = new SciAchievementDao();
+		SciAchievement sciAchievement = new SciAchievement();
+		sciAchievement.setDescri("de");
+		System.out.println(dao.searchSciAchievementByCondition(sciAchievement, 0, 10).size());
 	}
 
 }
