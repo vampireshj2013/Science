@@ -8,13 +8,14 @@ public class SciAchievement {
 	private int SciAchievementId;
 	private String internationalTec;
 	private String technologyLevel;
-	private String transFee;//转让费
-	private String expectMoney;//期望金额
-	private String key;//关键字
-	private String attentionNum;//
-	private String consulttationNum;//
-	private String desc;
+	private Double transFee;//转让费
+	private Double expectMoney;//期望金额
+	private String searchkey;//关键字
+	private int attentionNum;//
+	private int consulttationNum;//
+	private String descri;
 	private String attachment;
+	
 	private Maturity maturity;
 	private Cooperation cooperation;
 	private Industry industry;
@@ -38,41 +39,41 @@ public class SciAchievement {
 	public void setTechnologyLevel(String technologyLevel) {
 		this.technologyLevel = technologyLevel;
 	}
-	public String getTransFee() {
+	public Double getTransFee() {
 		return transFee;
 	}
-	public void setTransFee(String transFee) {
+	public void setTransFee(Double transFee) {
 		this.transFee = transFee;
 	}
-	public String getExpectMoney() {
+	public Double getExpectMoney() {
 		return expectMoney;
 	}
-	public void setExpectMoney(String expectMoney) {
+	public void setExpectMoney(Double expectMoney) {
 		this.expectMoney = expectMoney;
 	}
-	public String getKey() {
-		return key;
+	public String getSearchkey() {
+		return searchkey;
 	}
-	public void setKey(String key) {
-		this.key = key;
+	public void setSearchkey(String searchkey) {
+		this.searchkey = searchkey;
 	}
-	public String getAttentionNum() {
+	public int getAttentionNum() {
 		return attentionNum;
 	}
-	public void setAttentionNum(String attentionNum) {
+	public void setAttentionNum(int attentionNum) {
 		this.attentionNum = attentionNum;
 	}
-	public String getConsulttationNum() {
+	public int getConsulttationNum() {
 		return consulttationNum;
 	}
-	public void setConsulttationNum(String consulttationNum) {
+	public void setConsulttationNum(int consulttationNum) {
 		this.consulttationNum = consulttationNum;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescri() {
+		return descri;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescri(String descri) {
+		this.descri = descri;
 	}
 	public String getAttachment() {
 		return attachment;
@@ -110,7 +111,6 @@ public class SciAchievement {
 	public void setShop(Shop shop) {
 		this.shop = shop;
 	}
-	
 	
 	
 }
