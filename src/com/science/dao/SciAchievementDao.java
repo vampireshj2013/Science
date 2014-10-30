@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.science.model.SciAchievement;
 import com.science.util.JDBCUtil;
 /**
@@ -12,10 +15,11 @@ import com.science.util.JDBCUtil;
  *
  */
 public class SciAchievementDao {
+	public static Log log=LogFactory.getLog(SciAchievementDao.class);
 	private Connection conn;
-	public boolean addSciAchievement(SciAchievement  sAchievement){
+	public boolean addSciAchievement(SciAchievement  sciAchievement){
 		boolean result =false;
-		if(sAchievement ==null){
+		if(sciAchievement ==null){
 			throw new RuntimeException("SciAchievement 为空！");
 		}
 		
@@ -27,39 +31,38 @@ public class SciAchievementDao {
 				+ ",descri,attachment,user_userId,shop_shopId,industryId,maturityId) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		PreparedStatement preStatement = conn.prepareStatement(sql.toString());
 		
-		preStatement.setString(1, sAchievement.getInternationalTec());
-		preStatement.setString(2, sAchievement.getTechnologyLevel());
-		preStatement.setString(3, sAchievement.getTransFee());
-		preStatement.setString(4, sAchievement.getExpectMoney());
-		preStatement.setString(5, sAchievement.getKey());
-		preStatement.setString(6, sAchievement.getAttentionNum());
-		preStatement.setString(7, sAchievement.getConsulttationNum());
-		preStatement.setString(8, sAchievement.getDesc());
-		preStatement.setString(9, sAchievement.getAttachment());
-		//、、
-		if(sAchievement.getUser()==null){
+		preStatement.setString(1, sciAchievement.getInternationalTec());
+		preStatement.setString(2, sciAchievement.getTechnologyLevel());
+		preStatement.setDouble(3, sciAchievement.getTransFee());
+		preStatement.setDouble(4, sciAchievement.getExpectMoney());
+		preStatement.setString(5, sciAchievement.getSearchkey());
+		preStatement.setInt(6, sciAchievement.getAttentionNum());
+		preStatement.setInt(7, sciAchievement.getConsulttationNum());
+		preStatement.setString(8, sciAchievement.getDescri());
+		preStatement.setString(9, sciAchievement.getAttachment());
+		if(sciAchievement.getUser()==null){
 			preStatement.setString(10,null);
 		} 
 		else{
-			preStatement.setInt(10,sAchievement.getUser().getUserId());
+			preStatement.setInt(10,sciAchievement.getUser().getUserId());
 		}
-		if(sAchievement.getShop()==null){
+		if(sciAchievement.getShop()==null){
 			preStatement.setString(11,null);
 		}
 		else{
-			preStatement.setInt(11, sAchievement.getShop().getShopId());
+			preStatement.setInt(11, sciAchievement.getShop().getShopId());
 		}
-		if(sAchievement.getIndustry()==null){
+		if(sciAchievement.getIndustry()==null){
 			preStatement.setString(12,null);
 		}
 		else{
-			preStatement.setInt(12, sAchievement.getIndustry().getIndustryId());
+			preStatement.setInt(12, sciAchievement.getIndustry().getIndustryId());
 		}
-		if(sAchievement.getCooperation()==null){
+		if(sciAchievement.getCooperation()==null){
 			preStatement.setString(13,null);
 		}
 		else{
-			preStatement.setInt(13, sAchievement.getCooperation().getCooperationId());
+			preStatement.setInt(13, sciAchievement.getCooperation().getCooperationId());
 		}
 		result = preStatement.execute();
 		} catch (SQLException e) {
@@ -76,47 +79,65 @@ public class SciAchievementDao {
 		
 	}
 	public boolean updateSciAchievement(SciAchievement sciAchievement){
-		boolean result = false;
 		if(sciAchievement==null){
 			throw new RuntimeException("SciAchievement 为空！");
 		}
 		StringBuffer sql = new StringBuffer();
-		sql.append("update sciAchievement");
-		sql.append(" set internationalTec = '"+sciAchievement.getInternationalTec());
-		sql.append("' ,technologyLevel = '"+sciAchievement.getTechnologyLevel());
-		sql.append("' ,transferFee = "+sciAchievement.getTransFee());
-		sql.append(" ,expectMoney = "+sciAchievement.getExpectMoney());
-		sql.append(" ,searchKey ='"+sciAchievement.getKey());
-		sql.append("' ,attentionNum ="+sciAchievement.getAttentionNum());
-		sql.append(" ,consultationNum ="+sciAchievement.getConsulttationNum());
-		sql.append(" ,descri ='"+sciAchievement.getDesc());
-		sql.append("' ,attachment='"+sciAchievement.getAttachment());
-		if(sciAchievement.getUser()==null){
-			sql.append("' ,user_userId = null");
-		}else{
-			sql.append("' ,user_userId = "+sciAchievement.getUser().getUserId());
-		}
-		if(sciAchievement.getCooperation()==null){
-			sql.append(" ,cooperation_cooperationid = null");
-		}else{
-			sql.append(" ,cooperation_cooperationid = "+sciAchievement.getCooperation().getCooperationId());
-		}
-		if(sciAchievement.getShop()==null){
-			sql.append(" ,shop_shopId = null");
-		}else{
-			sql.append(" ,shop_shopId = "+sciAchievement.getShop().getShopId());
-		}
-		if(sciAchievement.getMaturity()==null){
-			sql.append(" ,maturityId = null");
-		}else{
-			sql.append(" ,maturityId = "+sciAchievement.getMaturity().getMaturityId());
-		}
+		sql.append("update sciAchievement set internationalTec=?,");
+		sql.append(" technologyLevel = ?,");
+		sql.append(" transferFee = ?,");
+		sql.append(" expectMoney = ?,");
+		sql.append(" searchKey =?,");
+		sql.append(" attentionNum =?,");
+		sql.append(" consultationNum =?,");
+		sql.append(" descri =?,");
+		sql.append(" attachment=?,");
+		sql.append(" userId=?,");
+		sql.append(" cooperationId=?,");
+		sql.append(" shopId=?,");
+		sql.append(" maturityId=?");
+		
 		sql.append(" where sciAchievementId = "+sciAchievement.getSciAchievementId());
 		try {
 			conn = JDBCUtil.getMySqlConnection();
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
+			preStatement.setString(1, sciAchievement.getInternationalTec());
+			preStatement.setString(2, sciAchievement.getTechnologyLevel());
+			preStatement.setDouble(3, sciAchievement.getTransFee());
+			preStatement.setDouble(4, sciAchievement.getExpectMoney());
+			preStatement.setString(5, sciAchievement.getSearchkey());
+			preStatement.setInt(6, sciAchievement.getAttentionNum());
+			preStatement.setInt(7, sciAchievement.getConsulttationNum());
+			preStatement.setString(8, sciAchievement.getDescri());
+			preStatement.setString(9, sciAchievement.getAttachment());
+			if(sciAchievement.getUser()==null){
+				preStatement.setString(10,null);
+			} 
+			else{
+				preStatement.setInt(10,sciAchievement.getUser().getUserId());
+			}
+			if(sciAchievement.getShop()==null){
+				preStatement.setString(11,null);
+			}
+			else{
+				preStatement.setInt(11, sciAchievement.getShop().getShopId());
+			}
+			if(sciAchievement.getIndustry()==null){
+				preStatement.setString(12,null);
+			}
+			else{
+				preStatement.setInt(12, sciAchievement.getIndustry().getIndustryId());
+			}
+			if(sciAchievement.getCooperation()==null){
+				preStatement.setString(13,null);
+			}
+			else{
+				preStatement.setInt(13, sciAchievement.getCooperation().getCooperationId());
+			}
+			//Log4j打印日志
+			log.debug("\nSQL语句：\n");
 			System.out.println(sql.toString());
-			result = preStatement.execute();
+			preStatement.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -127,6 +148,6 @@ public class SciAchievementDao {
 				e.printStackTrace();
 			}
 		}
-		return result;
+		return true;
 	}
 }

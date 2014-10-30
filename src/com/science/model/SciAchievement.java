@@ -8,8 +8,8 @@ public class SciAchievement {
 	private int SciAchievementId;
 	private String internationalTec;
 	private String technologyLevel;
-	private Double transFee;//转让费
-	private Double expectMoney;//期望金额
+	private double transFee;//转让费
+	private double expectMoney;//期望金额
 	private String searchkey;//关键字
 	private int attentionNum;//
 	private int consulttationNum;//
@@ -39,16 +39,16 @@ public class SciAchievement {
 	public void setTechnologyLevel(String technologyLevel) {
 		this.technologyLevel = technologyLevel;
 	}
-	public Double getTransFee() {
+	public double getTransFee() {
 		return transFee;
 	}
-	public void setTransFee(Double transFee) {
+	public void setTransFee(double transFee) {
 		this.transFee = transFee;
 	}
-	public Double getExpectMoney() {
+	public double getExpectMoney() {
 		return expectMoney;
 	}
-	public void setExpectMoney(Double expectMoney) {
+	public void setExpectMoney(double expectMoney) {
 		this.expectMoney = expectMoney;
 	}
 	public String getSearchkey() {
