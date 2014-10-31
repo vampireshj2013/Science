@@ -126,11 +126,17 @@ public class SciAchievementDao {
 			else{
 				preStatement.setInt(10,sciAchievement.getUser().getUserId());
 			}
+			if(sciAchievement.getCooperation()==null){
+				preStatement.setString(11,null);
+			}
+			else{
+				preStatement.setInt(11, sciAchievement.getCooperation().getCooperationId());
+			}
 			if(sciAchievement.getShop()==null){
 				preStatement.setString(11,null);
 			}
 			else{
-				preStatement.setInt(11, sciAchievement.getShop().getShopId());
+				preStatement.setInt(12, sciAchievement.getShop().getShopId());
 			}
 			if(sciAchievement.getIndustry()==null){
 				preStatement.setString(12,null);
@@ -138,11 +144,11 @@ public class SciAchievementDao {
 			else{
 				preStatement.setInt(12, sciAchievement.getIndustry().getIndustryId());
 			}
-			if(sciAchievement.getCooperation()==null){
+			if(sciAchievement.getMaturity()==null){
 				preStatement.setString(13,null);
 			}
 			else{
-				preStatement.setInt(13, sciAchievement.getCooperation().getCooperationId());
+				preStatement.setInt(13, sciAchievement.getMaturity().getMaturityId());
 			}
 			if(sciAchievement.getIndustry()==null){
 				preStatement.setString(14,null);

@@ -23,6 +23,9 @@
         <action name="demo" class="com.science.action.Demo">
             <result name="success">/structs.jsp</result>
         </action>
+        <action name="sciAction_*" class="com.science.action.SciAchevementAction" method="{1}">
+            <result name="updateInit">/update_SciAchievement.jsp</result>
+        </action>
     </package>
 
     <include file="example.xml"/>

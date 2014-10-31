@@ -5,7 +5,7 @@ package com.science.model;
  *
  */
 public class SciAchievement {
-	private int SciAchievementId;
+	private int sciAchievementId;
 	private String internationalTec;
 	private String technologyLevel;
 	private double transFee;//转让费
@@ -21,11 +21,12 @@ public class SciAchievement {
 	private Industry industry;
 	private User user;
 	private Shop shop;
+	
 	public int getSciAchievementId() {
-		return SciAchievementId;
+		return sciAchievementId;
 	}
 	public void setSciAchievementId(int sciAchievementId) {
-		SciAchievementId = sciAchievementId;
+		this.sciAchievementId = sciAchievementId;
 	}
 	public String getInternationalTec() {
 		return internationalTec;
