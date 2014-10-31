@@ -25,6 +25,8 @@
         </action>
         <action name="sciAction_*" class="com.science.action.SciAchevementAction" method="{1}">
             <result name="updateInit">/update_SciAchievement.jsp</result>
+            <result name="list">/sciAchievementList.jsp</result>
+            
         </action>
     </package>
 

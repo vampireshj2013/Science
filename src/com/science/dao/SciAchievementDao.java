@@ -288,4 +288,41 @@ public class SciAchievementDao {
 		}
 		return result;
 	}
+	
+	public int  countSciAchievementByCondition(SciAchievement condition){
+		int count=0;
+		/**
+		 * 做为示例，现只用descri作为查看条件
+		 * 使用MYSQL数据库语句limit ?,?做分页查询，所以该项目不支持mysql以外的数据库
+		 */
+		StringBuilder sql = new StringBuilder("select count(*) from sciAchievement where 1 = 1");
+		List param = new ArrayList();
+		 List<SciAchievement> result = new ArrayList<SciAchievement>();
+		if(condition!=null&&CommonUtil.NotBlank(condition.getDescri())){
+			sql.append(" and descri like ?");
+			param.add("%"+condition.getDescri()+"%");
+		}
+		try {
+			conn = JDBCUtil.getMySqlConnection();
+			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
+			for(int i = 0;i<param.size();i++){
+				preStatement.setObject(i+1, param.get(i));
+			}
+			ResultSet rs =  preStatement.executeQuery();
+			if(rs.next()){
+				count = rs.getInt("count(*)");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				JDBCUtil.close(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count;
+	}
 }
