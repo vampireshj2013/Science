@@ -200,6 +200,7 @@ public class SciAchievementDao {
 			ResultSet rs = preStatement.executeQuery();
 			if(rs.next()){
 				sciAchievement = new SciAchievement();
+				sciAchievement.setSciAchievementId(rs.getInt("sciAchievementId"));
 				sciAchievement.setAttachment(rs.getString("attachment"));
 				sciAchievement.setAttentionNum(rs.getInt("AttentionNum"));
 				sciAchievement.setConsulttationNum(rs.getInt("consultationNum"));
@@ -209,10 +210,12 @@ public class SciAchievementDao {
 				sciAchievement.setSearchkey(rs.getString("searchKey"));
 				sciAchievement.setTechnologyLevel(rs.getString("technologyLevel"));
 				sciAchievement.setTransFee(rs.getDouble("transferFee"));
+				/**
+				 * 省略了级联查询的方法，待后面所有的查询方法都写好之后再填上
+				 */
+				MaturityDao maturityDao = new MaturityDao();
+				sciAchievement.setMaturity(maturityDao.inquiryManurityById(rs.getInt("maturityId")));
 			}
-			/**
-			 * 省略了级联查询的方法，待后面所有的查询方法都写好之后再填上
-			 */
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -249,6 +252,7 @@ public class SciAchievementDao {
 			ResultSet rs =  preStatement.executeQuery();
 			while(rs.next()){
 				SciAchievement sciAchievement = new SciAchievement();
+				sciAchievement.setSciAchievementId(rs.getInt("sciAchievementId"));
 				sciAchievement.setAttachment(rs.getString("attachment"));
 				sciAchievement.setAttentionNum(rs.getInt("AttentionNum"));
 				sciAchievement.setConsulttationNum(rs.getInt("consultationNum"));
@@ -258,11 +262,14 @@ public class SciAchievementDao {
 				sciAchievement.setSearchkey(rs.getString("searchKey"));
 				sciAchievement.setTechnologyLevel(rs.getString("technologyLevel"));
 				sciAchievement.setTransFee(rs.getDouble("transferFee"));
+				/**
+				 * 省略了级联查询的方法，待后面所有的查询方法都写好之后再填上
+				 */
+				MaturityDao maturityDao = new MaturityDao();
+				sciAchievement.setMaturity(maturityDao.inquiryManurityById(rs.getInt("maturityId")));
 				result.add(sciAchievement);
 			}
-			/**
-			 * 省略了级联查询的方法，待后面所有的查询方法都写好之后再填上
-			 */
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -1,8 +1,10 @@
 package com.jdbc.test;
 
+import java.util.List;
+
 import org.junit.Test;
 
-import com.opensymphony.xwork2.interceptor.annotations.Before;
+import com.science.dao.MaturityDao;
 import com.science.dao.SciAchievementDao;
 import com.science.model.Cooperation;
 import com.science.model.Industry;
@@ -76,13 +78,31 @@ public class SciAchievementTest {
 	public void quirySciA1chievement(){
 		dao = new SciAchievementDao();
 		System.out.println(dao.inquirySciAchievementById(1).getDescri());
+		System.out.println(dao.inquirySciAchievementById(1).getMaturity().getMaturityDesc());
 	}
 	@Test
 	public void searchSciAchievementByCondition(){
 		dao = new SciAchievementDao();
 		SciAchievement sciAchievement = new SciAchievement();
 		sciAchievement.setDescri("de");
-		System.out.println(dao.searchSciAchievementByCondition(sciAchievement, 0, 10).size());
+		List<SciAchievement> result = dao.searchSciAchievementByCondition(sciAchievement, 0, 10);
+		System.out.println(result.size());
+		for(SciAchievement sci:result){
+			System.out.print(sci.getSciAchievementId()+"\t");
+			System.out.println(sci.getMaturity().getMaturityDesc());
+		}
 	}
-
+	@Test
+	public void inquiryMaturityById(){
+		MaturityDao dao = new MaturityDao();
+		Maturity maturity = dao.inquiryManurityById(1);
+		System.out.println(maturity.getMaturityDesc());
+	}
+	@Test
+	public void searchAllMaturity(){
+		MaturityDao dao = new MaturityDao();
+		List<Maturity> result = dao.searchAllMaturity();
+		for(Maturity maturity:result)
+		System.out.println(maturity.getMaturityDesc());
+	}
 }
