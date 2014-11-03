@@ -41,7 +41,7 @@ public class SciAchievementDao {
 		preStatement.setDouble(4, sciAchievement.getExpectMoney());
 		preStatement.setString(5, sciAchievement.getSearchkey());
 		preStatement.setInt(6, sciAchievement.getAttentionNum());
-		preStatement.setInt(7, sciAchievement.getConsulttationNum());
+		preStatement.setInt(7, sciAchievement.getConsultationNum());
 		preStatement.setString(8, sciAchievement.getDescri());
 		preStatement.setString(9, sciAchievement.getAttachment());
 		if(sciAchievement.getUser()==null){
@@ -117,7 +117,7 @@ public class SciAchievementDao {
 			preStatement.setDouble(4, sciAchievement.getExpectMoney());
 			preStatement.setString(5, sciAchievement.getSearchkey());
 			preStatement.setInt(6, sciAchievement.getAttentionNum());
-			preStatement.setInt(7, sciAchievement.getConsulttationNum());
+			preStatement.setInt(7, sciAchievement.getConsultationNum());
 			preStatement.setString(8, sciAchievement.getDescri());
 			preStatement.setString(9, sciAchievement.getAttachment());
 			if(sciAchievement.getUser()==null){
@@ -196,7 +196,7 @@ public class SciAchievementDao {
 			return false;
 		
 	}
-	public SciAchievement inquirySciAchievementById(int id){
+	public SciAchievement inquerySciAchievementById(int id){
 		SciAchievement sciAchievement =null;
 		String sql = "select * from sciAchievement where sciAchievementId = ?";
 		try {
@@ -209,7 +209,7 @@ public class SciAchievementDao {
 				sciAchievement.setSciAchievementId(rs.getInt("sciAchievementId"));
 				sciAchievement.setAttachment(rs.getString("attachment"));
 				sciAchievement.setAttentionNum(rs.getInt("AttentionNum"));
-				sciAchievement.setConsulttationNum(rs.getInt("consultationNum"));
+				sciAchievement.setConsultationNum(rs.getInt("consultationNum"));
 				sciAchievement.setDescri(rs.getString("descri"));
 				sciAchievement.setExpectMoney(rs.getDouble("expectMoney"));
 				sciAchievement.setInternationalTec(rs.getString("internationalTec"));
@@ -220,7 +220,7 @@ public class SciAchievementDao {
 				 * 省略了级联查询的方法，待后面所有的查询方法都写好之后再填上
 				 */
 				MaturityDao maturityDao = new MaturityDao();
-				sciAchievement.setMaturity(maturityDao.inquiryManurityById(rs.getInt("maturityId")));
+				sciAchievement.setMaturity(maturityDao.inqueryManurityById(rs.getInt("maturityId")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -261,7 +261,7 @@ public class SciAchievementDao {
 				sciAchievement.setSciAchievementId(rs.getInt("sciAchievementId"));
 				sciAchievement.setAttachment(rs.getString("attachment"));
 				sciAchievement.setAttentionNum(rs.getInt("AttentionNum"));
-				sciAchievement.setConsulttationNum(rs.getInt("consultationNum"));
+				sciAchievement.setConsultationNum(rs.getInt("consultationNum"));
 				sciAchievement.setDescri(rs.getString("descri"));
 				sciAchievement.setExpectMoney(rs.getDouble("expectMoney"));
 				sciAchievement.setInternationalTec(rs.getString("internationalTec"));
@@ -272,7 +272,7 @@ public class SciAchievementDao {
 				 * 省略了级联查询的方法，待后面所有的查询方法都写好之后再填上
 				 */
 				MaturityDao maturityDao = new MaturityDao();
-				sciAchievement.setMaturity(maturityDao.inquiryManurityById(rs.getInt("maturityId")));
+				sciAchievement.setMaturity(maturityDao.inqueryManurityById(rs.getInt("maturityId")));
 				result.add(sciAchievement);
 			}
 			

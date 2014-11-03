@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.science.dao.CooperationDao;
 import com.science.dao.MaturityDao;
 import com.science.dao.SciAchievementDao;
+import com.science.model.Cooperation;
 import com.science.model.Maturity;
 import com.science.model.SciAchievement;
 import com.science.util.PageUtil;
@@ -13,6 +15,7 @@ import com.science.util.PageUtil;
 public class SciAchevementAction extends ActionSupport {
 	private SciAchievementDao dao = new SciAchievementDao();
 	private MaturityDao maturityDao = new MaturityDao();
+	private CooperationDao cooperationDao=new CooperationDao();
 	private SciAchievement sciAchievement;
 	private PageUtil pageUtil = new PageUtil();
 	
@@ -41,9 +44,11 @@ public class SciAchevementAction extends ActionSupport {
 		return SUCCESS;
 	}
 	public String updateInit(){
-		sciAchievement = dao.inquirySciAchievementById(id);
+		sciAchievement = dao.inquerySciAchievementById(id);
 		List<Maturity> maturitys=maturityDao.searchAllMaturity();
 		ActionContext.getContext().put("maturitys", maturitys);
+		List<Cooperation> cooperations=cooperationDao.searchAllCooperation();
+		ActionContext.getContext().put("cooperations", cooperations);
 		return "updateInit";
 	}
 	public String update(){

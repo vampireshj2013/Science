@@ -18,17 +18,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<thead>
 			<tr>
 				<td>ID</td>
-				<td>简述</td>
-				<td>期望金额</td>
+				<td>所属行业</td>
+				<td>合作方式</td>
 				<td>技术成熟度</td>
+				<td>技术水平</td>
+				<td>是否国际技术</td>
+				<td>预期投资额</td>
+				<td>关键词</td>
+				<td>成果介绍</td>
 			</tr>
 		</thead>
 		<s:iterator value="#result" var="sciAchievement">
 			<tr>
 					<td><s:property value="#sciAchievement.sciAchievementId" /></td>
-					<td><s:property value="#sciAchievement.descri" /></td>
-					<td><s:property value="#sciAchievement.expectMoney" /></td>
+					<td><s:property value="#sciAchievement.industry" /></td>
+					<td><s:property value="#sciAchievement.cooperation" /></td>
 					<td><s:property value="#sciAchievement.maturity.maturityDesc" /></td>
+					<td><s:property value="#sciAchievement.technologyLevel" /></td>
+					<td><s:property value="#sciAchievement.internationalTec" /></td>
+					<td><s:property value="#sciAchievement.expectMoney" /></td>
+					<td><s:property value="#sciAchievement.searchkey" /></td>
+					<td><s:property value="#sciAchievement.descri" /></td>
 			</tr>
 		</s:iterator>
 		</table>

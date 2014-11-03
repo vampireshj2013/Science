@@ -6,19 +6,18 @@ package com.science.model;
  */
 public class SciAchievement {
 	private int sciAchievementId;
-	private String internationalTec;
-	private String technologyLevel;
+	private String internationalTec;//国际技术
+	private String technologyLevel;//技术水平
 	private double transFee;//转让费
-	private double expectMoney;//期望金额
+	private double expectMoney;//预期投资额
 	private String searchkey;//关键字
-	private int attentionNum;//
-	private int consulttationNum;//
-	private String descri;
-	private String attachment; 
-	
-	private Maturity maturity;
-	private Cooperation cooperation;
-	private Industry industry;
+	private int attentionNum;//关注数
+	private int consultationNum;//咨询数
+	private String descri;//成果介绍
+	private Maturity maturity;//成熟度
+	private Cooperation cooperation;//合作方式
+	private Industry industry;//所属行业
+	private String attachment; //附件
 	private User user;
 	private Shop shop;
 	
@@ -64,11 +63,11 @@ public class SciAchievement {
 	public void setAttentionNum(int attentionNum) {
 		this.attentionNum = attentionNum;
 	}
-	public int getConsulttationNum() {
-		return consulttationNum;
+	public int getConsultationNum() {
+		return consultationNum;
 	}
-	public void setConsulttationNum(int consulttationNum) {
-		this.consulttationNum = consulttationNum;
+	public void setConsultationNum(int consultationNum) {
+		this.consultationNum = consultationNum;
 	}
 	public String getDescri() {
 		return descri;
