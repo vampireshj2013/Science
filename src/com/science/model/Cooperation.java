@@ -20,5 +20,6 @@ public class Cooperation {
 		this.cooperationDesc = cooperationDesc;
 	}
 	
+	
 
 }

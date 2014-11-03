@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		所属行业:<input name="sciAchievement.industry" type="text" value="<s:property value="sciAchievement.industry" />"><br/>
 		合作方式:
 		<s:select headerKey="0" headerValue="===请选择===" list="#cooperations"
-		                  		name="sciAchievement.cooperation.cooperationId" listkey="cooperationId" listValue="cooperationDesc">
+		                  		name="sciAchievement.cooperation.cooperationId" listKey="cooperationId" listValue="cooperationDesc">
 		</s:select><br/>
 		技术成熟度:
 		<s:select headerKey="0" headerValue="===请选择==="  list="#maturitys"

@@ -49,6 +49,7 @@ public class SciAchevementAction extends ActionSupport {
 		ActionContext.getContext().put("maturitys", maturitys);
 		List<Cooperation> cooperations=cooperationDao.searchAllCooperation();
 		ActionContext.getContext().put("cooperations", cooperations);
+		
 		return "updateInit";
 	}
 	public String update(){
