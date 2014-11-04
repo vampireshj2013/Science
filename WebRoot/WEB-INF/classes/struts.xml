@@ -28,6 +28,17 @@
             <result name="list">/sciAchievementList.jsp</result>
             
         </action>
+        <!--  <action name="patentTranAction_*" class="com.science.action.PatentTranAction" method="{1}">
+            <result name="updateInit">/update_PatentTran.jsp</result> 
+          
+            <result name="list">/patentTranList.jsp</result>
+            <result name="success">/structs.jsp</result>
+        </action> -->
+         <action name="patentTranAction_*" class="com.science.action.PatentTranAction" method="{1}">
+            <result name="success">/structs.jsp</result>
+            <result name="updateInit">/update_PatentTran.jsp</result> 
+            <result name="list">/patentTranList.jsp</result>
+            </action>
     </package>
 
     <include file="example.xml"/>
