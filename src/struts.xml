@@ -39,6 +39,12 @@
             <result name="updateInit">/update_PatentTran.jsp</result> 
             <result name="list">/patentTranList.jsp</result>
             </action>
+            <action name="patentBuyAction_*" class="com.science.action.PatentBuyAction" method="{1}">
+            <result name="updateInit">/update_PatentBuy.jsp</result> 
+          
+            <result name="list">/patentBuyList.jsp</result>
+            <result name="success">/structs.jsp</result>
+        </action>
     </package>
 
     <include file="example.xml"/>

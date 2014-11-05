@@ -10,6 +10,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.science.model.Cooperation;
 import com.science.model.SciAchievement;
 import com.science.util.CommonUtil;
 import com.science.util.JDBCUtil;
@@ -221,6 +222,8 @@ public class SciAchievementDao {
 				 */
 				MaturityDao maturityDao = new MaturityDao();
 				sciAchievement.setMaturity(maturityDao.inqueryManurityById(rs.getInt("maturityId")));
+				CooperationDao cooperationDao = new CooperationDao();
+				sciAchievement.setCooperation(cooperationDao.inqueryCooperationById(rs.getInt("cooperationId")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
