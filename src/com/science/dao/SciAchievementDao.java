@@ -134,16 +134,10 @@ public class SciAchievementDao {
 				preStatement.setInt(11, sciAchievement.getCooperation().getCooperationId());
 			}
 			if(sciAchievement.getShop()==null){
-				preStatement.setString(11,null);
-			}
-			else{
-				preStatement.setInt(12, sciAchievement.getShop().getShopId());
-			}
-			if(sciAchievement.getIndustry()==null){
 				preStatement.setString(12,null);
 			}
 			else{
-				preStatement.setInt(12, sciAchievement.getIndustry().getIndustryId());
+				preStatement.setInt(12, sciAchievement.getShop().getShopId());
 			}
 			if(sciAchievement.getMaturity()==null){
 				preStatement.setString(13,null);
@@ -160,7 +154,7 @@ public class SciAchievementDao {
 			//Log4j打印日志
 			log.debug("\nSQL语句：\n");
 			System.out.println(sql.toString());
-			preStatement.execute();
+			preStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -12,7 +12,7 @@ import com.science.model.Maturity;
 import com.science.model.SciAchievement;
 import com.science.util.PageUtil;
 
-public class SciAchevementAction extends ActionSupport {
+public class SciAchievementAction extends ActionSupport {
 	private SciAchievementDao dao = new SciAchievementDao();
 	private MaturityDao maturityDao = new MaturityDao();
 	private CooperationDao cooperationDao=new CooperationDao();
