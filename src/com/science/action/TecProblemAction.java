@@ -6,18 +6,19 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.science.dao.CityDao;
 import com.science.dao.IndustryDao;
-import com.science.dao.TecExpertDao;
+import com.science.dao.TecProblemDao;
 import com.science.model.City;
 import com.science.model.Industry;
-import com.science.model.TecExpert;
+import com.science.model.TecProblem;
 import com.science.util.PageUtil;
 
-public class TecExpertAction extends ActionSupport{
-	private TecExpertDao dao = new TecExpertDao();	
+public class TecProblemAction extends ActionSupport{
+	private TecProblemDao dao = new TecProblemDao();	
 	private IndustryDao industryDao=new IndustryDao();
-	private CityDao cityDao=new CityDao();	
-	private TecExpert tecExpert;
+	private TecProblem tecProblem;
 	private PageUtil pageUtil = new PageUtil();
+	
+	
 	private int id;
 	
 	public int getId() {
@@ -26,11 +27,11 @@ public class TecExpertAction extends ActionSupport{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public TecExpert getTecExpert() {
-		return tecExpert;
+	public TecProblem getTecProblem() {
+		return tecProblem;
 	}
-	public void setTecExpert(TecExpert tecExpert) {
-		this.tecExpert = tecExpert;
+	public void setTecProblem(TecProblem tTecProblem) {
+		this.tecProblem = tecProblem;
 	}
 	public PageUtil getPageUtil() {
 		return pageUtil;
@@ -47,28 +48,27 @@ public class TecExpertAction extends ActionSupport{
 		return SUCCESS;
 	}
 	public String updateInit(){
-		tecExpert = dao.inqueryTecExpertById(id);
+		tecProblem = dao.inqueryTecProblemById(id);
 		/*List<Maturity> maturitys=maturityDao.searchAllMaturity();
 		ActionContext.getContext().put("maturitys", maturitys);*/
 		List<Industry> industrys=industryDao.searchAllIndustry();
 		ActionContext.getContext().put("industrys", industrys);
 		
-		List<City> citys=cityDao.searchAllCity();
-		ActionContext.getContext().put("citys", citys);
+	
 		
 		return "updateInit";
 		//return "success";
 	}
 	public String update(){
-		dao.updateTecExpert(tecExpert);
+		dao.updateTecProblem(tecProblem);
 		return NONE;
 	}
 	public String list(){
 		//设置每页显示的行数
 		pageUtil.setPageSize(3);
-		List<TecExpert> result = dao.searchTecExpertByCondition(tecExpert, pageUtil.getIndex(), pageUtil.getPageSize());
+		List<TecProblem> result = dao.searchTecProblemByCondition(tecProblem, pageUtil.getIndex(), pageUtil.getPageSize());
 		//设置总共有多少条记录
-		pageUtil.setRecordCount(dao.countTecExpertByCondition(tecExpert));
+		pageUtil.setRecordCount(dao.countTecProblemByCondition(tecProblem));
 		ActionContext.getContext().put("result", result);
 		return "list";
 	}

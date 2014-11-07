@@ -29,7 +29,7 @@ public class MaturityDao {
 	private boolean deleteMaturity(int id){
 		return true;
 	}
-	public Maturity inqueryManurityById(int id){
+	public Maturity inqueryMaturityById(int id){
 		Maturity maturity =null;
 		String sql = "select * from maturity where maturityId = ?";
 		try {

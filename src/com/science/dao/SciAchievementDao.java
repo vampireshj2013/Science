@@ -40,7 +40,7 @@ public class SciAchievementDao {
 		preStatement.setString(2, sciAchievement.getTechnologyLevel());
 		preStatement.setDouble(3, sciAchievement.getTransFee());
 		preStatement.setDouble(4, sciAchievement.getExpectMoney());
-		preStatement.setString(5, sciAchievement.getSearchkey());
+		preStatement.setString(5, sciAchievement.getSearchKey());
 		preStatement.setInt(6, sciAchievement.getAttentionNum());
 		preStatement.setInt(7, sciAchievement.getConsultationNum());
 		preStatement.setString(8, sciAchievement.getDescri());
@@ -116,7 +116,7 @@ public class SciAchievementDao {
 			preStatement.setString(2, sciAchievement.getTechnologyLevel());
 			preStatement.setDouble(3, sciAchievement.getTransFee());
 			preStatement.setDouble(4, sciAchievement.getExpectMoney());
-			preStatement.setString(5, sciAchievement.getSearchkey());
+			preStatement.setString(5, sciAchievement.getSearchKey());
 			preStatement.setInt(6, sciAchievement.getAttentionNum());
 			preStatement.setInt(7, sciAchievement.getConsultationNum());
 			preStatement.setString(8, sciAchievement.getDescri());
@@ -208,14 +208,14 @@ public class SciAchievementDao {
 				sciAchievement.setDescri(rs.getString("descri"));
 				sciAchievement.setExpectMoney(rs.getDouble("expectMoney"));
 				sciAchievement.setInternationalTec(rs.getString("internationalTec"));
-				sciAchievement.setSearchkey(rs.getString("searchKey"));
+				sciAchievement.setSearchKey(rs.getString("searchKey"));
 				sciAchievement.setTechnologyLevel(rs.getString("technologyLevel"));
 				sciAchievement.setTransFee(rs.getDouble("transferFee"));
 				/**
 				 * 省略了级联查询的方法，待后面所有的查询方法都写好之后再填上
 				 */
 				MaturityDao maturityDao = new MaturityDao();
-				sciAchievement.setMaturity(maturityDao.inqueryManurityById(rs.getInt("maturityId")));
+				sciAchievement.setMaturity(maturityDao.inqueryMaturityById(rs.getInt("maturityId")));
 				CooperationDao cooperationDao = new CooperationDao();
 				sciAchievement.setCooperation(cooperationDao.inqueryCooperationById(rs.getInt("cooperationId")));
 			}
@@ -262,14 +262,14 @@ public class SciAchievementDao {
 				sciAchievement.setDescri(rs.getString("descri"));
 				sciAchievement.setExpectMoney(rs.getDouble("expectMoney"));
 				sciAchievement.setInternationalTec(rs.getString("internationalTec"));
-				sciAchievement.setSearchkey(rs.getString("searchKey"));
+				sciAchievement.setSearchKey(rs.getString("searchKey"));
 				sciAchievement.setTechnologyLevel(rs.getString("technologyLevel"));
 				sciAchievement.setTransFee(rs.getDouble("transferFee"));
 				/**
 				 * 省略了级联查询的方法，待后面所有的查询方法都写好之后再填上
 				 */
 				MaturityDao maturityDao = new MaturityDao();
-				sciAchievement.setMaturity(maturityDao.inqueryManurityById(rs.getInt("maturityId")));
+				sciAchievement.setMaturity(maturityDao.inqueryMaturityById(rs.getInt("maturityId")));
 				result.add(sciAchievement);
 			}
 			

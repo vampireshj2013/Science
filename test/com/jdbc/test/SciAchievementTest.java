@@ -21,7 +21,7 @@ public class SciAchievementTest {
 		for(int i =0;i<10;i++){
 			SciAchievement sciAchievement = new SciAchievement();
 			sciAchievement.setAttachment("attachment-123");
-			sciAchievement.setSearchkey("searchKey22whj");
+			sciAchievement.setSearchKey("searchKey22whj");
 			sciAchievement.setConsultationNum(123);
 			sciAchievement.setTransFee(123.45678);
 			sciAchievement.setDescri("descri"+i);
@@ -50,7 +50,7 @@ public class SciAchievementTest {
 		dao = new SciAchievementDao();
 		SciAchievement sciAchievement = new SciAchievement();
 		sciAchievement.setAttachment("attachment-123");
-		sciAchievement.setSearchkey("searchKey22whj");
+		sciAchievement.setSearchKey("searchKey22whj");
 		sciAchievement.setConsultationNum(123);
 		sciAchievement.setTransFee(123.45678);
 		User user = new User();
@@ -75,7 +75,7 @@ public class SciAchievementTest {
 		System.out.println(result);
 	}
 	@Test
-	public void quirySciA1chievement(){
+	public void querySciAchievement(){
 		dao = new SciAchievementDao();
 		System.out.println(dao.inquerySciAchievementById(1).getDescri());
 		System.out.println(dao.inquerySciAchievementById(1).getMaturity().getMaturityDesc());
@@ -93,9 +93,9 @@ public class SciAchievementTest {
 		}
 	}
 	@Test
-	public void inquiryMaturityById(){
+	public void inqueryMaturityById(){
 		MaturityDao dao = new MaturityDao();
-		Maturity maturity = dao.inqueryManurityById(1);
+		Maturity maturity = dao.inqueryMaturityById(1);
 		System.out.println(maturity.getMaturityDesc());
 	}
 	@Test

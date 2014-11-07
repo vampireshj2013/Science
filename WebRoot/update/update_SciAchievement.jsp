@@ -25,7 +25,7 @@
 		是否国际技术:<input name="sciAchievement.internationalTec" type="radio" value="<s:property value="sciAchievement.internationalTec" />">是
                   <input name="sciAchievement.internationalTec" type="radio" value="<s:property value="sciAchievement.internationalTec"/>">否<br/>      
 		预期投资额:<input name="sciAchievement.expectMoney" type="text" value="<s:property value="sciAchievement.expectMoney" />"><br/>
-		关键词:<input name="sciAchievement.searchkey" type="text" value="<s:property value="sciAchievement.searchkey" />"><br/>
+		关键词:<input name="sciAchievement.searchKey" type="text" value="<s:property value="sciAchievement.searchKey" />"><br/>
 		成果介绍:<input name="sciAchievement.descri" type="text" value="<s:property value="sciAchievement.descri" />"><br/>
 		
 		<input  type="submit" value="提交"/>

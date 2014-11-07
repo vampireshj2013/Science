@@ -10,7 +10,7 @@ public class SciAchievement {
 	private String technologyLevel;//技术水平
 	private double transFee;//转让费
 	private double expectMoney;//预期投资额
-	private String searchkey;//关键字
+	private String searchKey;//关键字
 	private int attentionNum;//关注数
 	private int consultationNum;//咨询数
 	private String descri;//成果介绍
@@ -51,11 +51,11 @@ public class SciAchievement {
 	public void setExpectMoney(double expectMoney) {
 		this.expectMoney = expectMoney;
 	}
-	public String getSearchkey() {
-		return searchkey;
+	public String getSearchKey() {
+		return searchKey;
 	}
-	public void setSearchkey(String searchkey) {
-		this.searchkey = searchkey;
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
 	}
 	public int getAttentionNum() {
 		return attentionNum;

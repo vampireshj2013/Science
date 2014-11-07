@@ -24,23 +24,28 @@
             <result name="success">/structs.jsp</result>
         </action>
         <action name="sciAction_*" class="com.science.action.SciAchievementAction" method="{1}">
-            <result name="updateInit">/update_SciAchievement.jsp</result>
-            <result name="list">/sciAchievementList.jsp</result>
+            <result name="updateInit">/update/update_SciAchievement.jsp</result>
+            <result name="list">/list/sciAchievementList.jsp</result>
             
         </action>
          <action name="patentTranAction_*" class="com.science.action.PatentTranAction" method="{1}">
             <result name="success">/structs.jsp</result>
-            <result name="updateInit">/update_PatentTran.jsp</result> 
-            <result name="list">/patentTranList.jsp</result>
+            <result name="updateInit">/update/update_PatentTran.jsp</result> 
+            <result name="list">/list/patentTranList.jsp</result>
          </action>
          <action name="patentBuyAction_*" class="com.science.action.PatentBuyAction" method="{1}">
-            <result name="updateInit">/update_PatentBuy.jsp</result> 
-            <result name="list">/patentBuyList.jsp</result>
+            <result name="updateInit">/update/update_PatentBuy.jsp</result> 
+            <result name="list">/list/patentBuyList.jsp</result>
             <result name="success">/structs.jsp</result>
         </action>
          <action name="tecExpertAction_*" class="com.science.action.TecExpertAction" method="{1}">
-            <result name="updateInit">/update_TecExpert.jsp</result> 
-            <result name="list">/tecExpertList.jsp</result>
+            <result name="updateInit">/update/update_TecExpert.jsp</result> 
+            <result name="list">/list/tecExpertList.jsp</result>
+            <result name="success">/structs.jsp</result>
+        </action>
+          <action name="tecProblemAction_*" class="com.science.action.TecProblemAction" method="{1}">
+            <result name="updateInit">/update/update_TecProblem.jsp</result> 
+            <result name="list">/list/tecProblemList.jsp</result>
             <result name="success">/structs.jsp</result>
         </action>
     </package>

@@ -176,7 +176,7 @@ public class TecExpertDao {
 			return false;
 		
 	}
-	public TecExpert  inqueryTecExpertById(int id){
+	public TecExpert inqueryTecExpertById(int id){
 		TecExpert tecExpert =null;
 		String sql = "select * from tecExpert where tecExpertId = ?";
 		try {
@@ -261,7 +261,6 @@ public class TecExpertDao {
 				 */
 				/*MaturityDao maturityDao = new MaturityDao();
 				sciAchievement.setMaturity(maturityDao.inqueryManurityById(rs.getInt("maturityId")));*/
-				
 				
 				result.add(tecExpert);
 			}
