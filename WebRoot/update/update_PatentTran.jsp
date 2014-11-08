@@ -26,7 +26,7 @@
 		</s:select><br/>
 		意向转让费：<input name="patentTran.transferFee" type="text" value="<s:property value="patentTran.transferFee" />"><br/>
 		关键词：<input name="patentTran.searchKey" type="text" value="<s:property value="patentTran.searchKey" />"><br/>
-		专利描述：<input name="patentTran.descri" type="text" value="<s:property value="patentTran.descri" />"><br/>
+		专利介绍：<input name="patentTran.descri" type="text" value="<s:property value="patentTran.descri" />"><br/>
 		
 		
 		<input  type="submit" value="提交"/>

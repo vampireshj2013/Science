@@ -2,25 +2,24 @@ package com.science.model;
 
 import java.util.Date;
 
-public class ProInvest {
-	private int proInvestId;
-	private Industry industry;//投资领域
+public class ProFinance {
+	private int proFinanceId;
+	private Industry industry;//融资领域
 	private User user;
 	private Shop shop;
-	private City city;//投资区域
-	private float investMoney;//投资额度
-	private Invest invest;//投资方式
+	private float financeMoney;//融资额度
+	private Finance finance;//融资方式
 	private String endTime;//截止时间
 	private String searchKey;//关键词
 	private int attentionNum;//关注数
 	private int consultationNum;//咨询数
-	private String descri;
+	private String descri;	
 	private String attachment; //附件
-	public int getProInvestId() {
-		return proInvestId;
+	public int getProFinanceId() {
+		return proFinanceId;
 	}
-	public void setProInvestId(int proInvestId) {
-		this.proInvestId = proInvestId;
+	public void setProFinanceId(int proFinanceId) {
+		this.proFinanceId = proFinanceId;
 	}
 	public Industry getIndustry() {
 		return industry;
@@ -40,18 +39,20 @@ public class ProInvest {
 	public void setShop(Shop shop) {
 		this.shop = shop;
 	}
-	public City getCity() {
-		return city;
+	public float getFinanceMoney() {
+		return financeMoney;
 	}
-	public void setCity(City city) {
-		this.city = city;
+	public void setFinanceMoney(float financeMoney) {
+		this.financeMoney = financeMoney;
 	}
-	public float getInvestMoney() {
-		return investMoney;
+	
+	public Finance getFinance() {
+		return finance;
 	}
-	public void setInvestMoney(float investMoney) {
-		this.investMoney = investMoney;
+	public void setFinance(Finance finance) {
+		this.finance = finance;
 	}
+	
 	public String getEndTime() {
 		return endTime;
 	}
@@ -88,12 +89,7 @@ public class ProInvest {
 	public void setAttachment(String attachment) {
 		this.attachment = attachment;
 	}
-	public Invest getInvest() {
-		return invest;
-	}
-	public void setInvest(Invest invest) {
-		this.invest = invest;
-	}
+	
 	
 	
 

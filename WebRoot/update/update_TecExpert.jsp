@@ -19,7 +19,7 @@
 		性别:<input name="tecExpert.sex" type="text" value="<s:property value="tecExpert.sex" />"><br/>
 		学历:<input name="tecExpert.education" type="text" value="<s:property value="tecExpert.education" />"><br/>
 		关键词:<input name="tecExpert.searchKey" type="text" value="<s:property value="tecExpert.searchKey" />"><br/>
-		成果介绍:<input name="tecExpert.descri" type="text" value="<s:property value="tecExpert.descri" />"><br/>
+		专家介绍:<input name="tecExpert.descri" type="text" value="<s:property value="tecExpert.descri" />"><br/>
 		
 		<input  type="submit" value="提交"/>
 	</form>

@@ -203,7 +203,7 @@ public class SciAchievementDao {
 				sciAchievement = new SciAchievement();
 				sciAchievement.setSciAchievementId(rs.getInt("sciAchievementId"));
 				sciAchievement.setAttachment(rs.getString("attachment"));
-				sciAchievement.setAttentionNum(rs.getInt("AttentionNum"));
+				sciAchievement.setAttentionNum(rs.getInt("attentionNum"));
 				sciAchievement.setConsultationNum(rs.getInt("consultationNum"));
 				sciAchievement.setDescri(rs.getString("descri"));
 				sciAchievement.setExpectMoney(rs.getDouble("expectMoney"));
@@ -257,7 +257,7 @@ public class SciAchievementDao {
 				SciAchievement sciAchievement = new SciAchievement();
 				sciAchievement.setSciAchievementId(rs.getInt("sciAchievementId"));
 				sciAchievement.setAttachment(rs.getString("attachment"));
-				sciAchievement.setAttentionNum(rs.getInt("AttentionNum"));
+				sciAchievement.setAttentionNum(rs.getInt("attentionNum"));
 				sciAchievement.setConsultationNum(rs.getInt("consultationNum"));
 				sciAchievement.setDescri(rs.getString("descri"));
 				sciAchievement.setExpectMoney(rs.getDouble("expectMoney"));

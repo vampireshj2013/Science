@@ -194,7 +194,7 @@ public class TecExpertDao {
 				tecExpert .setDuty(rs.getString("duty"));
 				tecExpert .setEducation(rs.getString("education"));
 				tecExpert .setAttachment(rs.getString("attachment"));
-				tecExpert .setAttentionNum(rs.getInt("AttentionNum"));
+				tecExpert .setAttentionNum(rs.getInt("attentionNum"));
 				tecExpert .setConsultationNum(rs.getInt("consultationNum"));
 				tecExpert .setDescri(rs.getString("descri"));				
 				tecExpert .setSearchKey(rs.getString("searchKey"));
@@ -251,7 +251,7 @@ public class TecExpertDao {
 				tecExpert .setDuty(rs.getString("duty"));
 				tecExpert .setEducation(rs.getString("education"));
 				tecExpert .setAttachment(rs.getString("attachment"));
-				tecExpert .setAttentionNum(rs.getInt("AttentionNum"));
+				tecExpert .setAttentionNum(rs.getInt("attentionNum"));
 				tecExpert .setConsultationNum(rs.getInt("consultationNum"));
 				tecExpert .setDescri(rs.getString("descri"));				
 				tecExpert .setSearchKey(rs.getString("searchKey"));

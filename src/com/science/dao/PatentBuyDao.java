@@ -187,7 +187,7 @@ public class PatentBuyDao {
 				patentBuy.setPatentBuyId(rs.getInt("patentBuyId"));
 				patentBuy.setExpectMoney(rs.getInt("expectMoney"));
 				patentBuy.setAttachment(rs.getString("attachment"));
-				patentBuy.setAttentionNum(rs.getInt("AttentionNum"));
+				patentBuy.setAttentionNum(rs.getInt("attentionNum"));
 				patentBuy.setConsultationNum(rs.getInt("consultationNum"));
 				patentBuy.setDescri(rs.getString("descri"));				
 				patentBuy.setSearchKey(rs.getString("searchKey"));
@@ -243,9 +243,9 @@ public class PatentBuyDao {
 			while(rs.next()){
 				PatentBuy patentBuy = new PatentBuy();
 				patentBuy.setPatentBuyId(rs.getInt("patentBuyId"));
-				patentBuy.setExpectMoney(rs.getInt("exceptionMoney"));
+				patentBuy.setExpectMoney(rs.getInt("expectMoney"));
 				patentBuy.setAttachment(rs.getString("attachment"));
-				patentBuy.setAttentionNum(rs.getInt("AttentionNum"));
+				patentBuy.setAttentionNum(rs.getInt("attentionNum"));
 				patentBuy.setConsultationNum(rs.getInt("consultationNum"));
 				patentBuy.setDescri(rs.getString("descri"));				
 				patentBuy.setSearchKey(rs.getString("searchKey"));

@@ -200,7 +200,7 @@ public class PatentTranDao {
 				patentTran.setLawStatus(rs.getString("lawStatus"));
 				patentTran.setTransferFee(rs.getFloat("transferFee"));
 				patentTran.setAttachment(rs.getString("attachment"));
-				patentTran.setAttentionNum(rs.getInt("AttentionNum"));
+				patentTran.setAttentionNum(rs.getInt("attentionNum"));
 				patentTran.setConsultationNum(rs.getInt("consultationNum"));
 				patentTran.setDescri(rs.getString("descri"));				
 				patentTran.setSearchKey(rs.getString("searchKey"));
@@ -260,7 +260,7 @@ public class PatentTranDao {
 				patentTran.setLawStatus(rs.getString("lawStatus"));
 				patentTran.setTransferFee(rs.getFloat("transferFee"));
 				patentTran.setAttachment(rs.getString("attachment"));
-				patentTran.setAttentionNum(rs.getInt("AttentionNum"));
+				patentTran.setAttentionNum(rs.getInt("attentionNum"));
 				patentTran.setConsultationNum(rs.getInt("consultationNum"));
 				patentTran.setDescri(rs.getString("descri"));				
 				patentTran.setSearchKey(rs.getString("searchKey"));

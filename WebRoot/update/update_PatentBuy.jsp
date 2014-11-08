@@ -24,7 +24,7 @@
 		</s:select><br/>
 		预算金额：<input name="patentBuy.expectMoney" type="text" value="<s:property value="patentBuy.expectMoney" />"><br/>
 		关键词：<input name="patentBuy.searchKey" type="text" value="<s:property value="patentBuy.searchKey" />"><br/>
-		专利描述：<input name="patentBuy.descri" type="text" value="<s:property value="patentBuy.descri" />"><br/>
+		求购详情：<input name="patentBuy.descri" type="text" value="<s:property value="patentBuy.descri" />"><br/>
 		
 		
 		<input  type="submit" value="提交"/>
