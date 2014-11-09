@@ -27,7 +27,7 @@ public class ProInvestDao {
 			conn= JDBCUtil.getMySqlConnection();
 			StringBuffer sql=new StringBuffer();
 			sql.append("insert into proInvest(investMoney,endTime,searchKey,attentionNum,consultationNum"
-				+ ",descri,attachment,user_userId,shop_shopId,industry_industryId,city_classId,invest_investId) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+				+ ",descri,attachment,userId,shopId,industry_industryId,city_classId,invest_investId) values (?,?,?,?,?,?,?,?,?,?,?,?)");
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
 			preStatement.setFloat(1, proInvest.getInvestMoney());
 			preStatement.setString(2, proInvest.getEndTime());
@@ -65,7 +65,7 @@ public class ProInvestDao {
 			else{
 				preStatement.setInt(12, proInvest.getInvest().getInvestId());
 			}
-			
+			result=preStatement.execute();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -90,10 +90,10 @@ public class ProInvestDao {
 		sql.append(" consultationNum =?,");
 		sql.append(" descri =?,");
 		sql.append(" attachment=?,");
-		sql.append(" user_userId=?,");
-		sql.append(" shop_shopId=?,");
-		sql.append(" industry_industryId=?");
-		sql.append(" city_classId=?");
+		sql.append(" userId=?,");
+		sql.append(" shopId=?,");
+		sql.append(" industry_industryId=?,");
+		sql.append(" city_classId=?,");
 		sql.append(" invest_investId=?");
 		sql.append(" where proInvestId = "+proInvest.getProInvestId());
 		try {

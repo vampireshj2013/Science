@@ -174,6 +174,9 @@ public class SciAchievementDao {
 			conn = JDBCUtil.getMySqlConnection();
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
 			preStatement.setInt(1,id);
+			//Log4j打印日志
+			log.debug("\nSQL语句：\n");
+			System.out.println(sql.toString());
 			result = preStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

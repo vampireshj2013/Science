@@ -54,7 +54,7 @@ public class TecProblemDao {
 			else{
 				preStatement.setInt(10, tecProblem.getIndustry().getIndustryId());
 			}
-			
+			result = preStatement.execute();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}

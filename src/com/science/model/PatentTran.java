@@ -10,7 +10,7 @@ public class PatentTran {
 	private int patentNum;//专利号
 	private String patentee;//专利所有人
 	private String lawStatus;//法律状态
-	private float transferFee;//转让费
+	private double transferFee;//转让费
 	private String searchKey;//关键词
 	private int attentionNum;//关注数
 	private int consultationNum;//咨询数
@@ -78,11 +78,11 @@ public class PatentTran {
 	public void setLawStatus(String lawStatus) {
 		this.lawStatus = lawStatus;
 	}
-	public float getTransferFee() {
+	public double getTransferFee() {
 		return transferFee;
 	}
-	public void setTransferFee(float transferFee) {
-		this.transferFee = transferFee;
+	public void setTransferFee(double d) {
+		this.transferFee = d;
 	}
 	
 	public String getSearchKey() {

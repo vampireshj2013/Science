@@ -27,7 +27,7 @@ public class ProFinanceDao {
 			conn= JDBCUtil.getMySqlConnection();
 			StringBuffer sql=new StringBuffer();
 			sql.append("insert into proFinance(financeMoney,endTime,searchKey,attentionNum,consultationNum"
-				+ ",descri,attachment,user_userId,shop_shopId,industry_industryId,finance_financeId) values (?,?,?,?,?,?,?,?,?,?,?)");
+				+ ",descri,attachment,userId,shopId,industry_industryId,finance_financeId) values (?,?,?,?,?,?,?,?,?,?,?)");
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
 			preStatement.setFloat(1, proFinance.getFinanceMoney());
 			preStatement.setString(2, proFinance.getEndTime());
@@ -60,7 +60,7 @@ public class ProFinanceDao {
 			else{
 				preStatement.setInt(11, proFinance.getFinance().getFinanceId());
 			}
-			
+			result=preStatement.execute();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -85,9 +85,9 @@ public class ProFinanceDao {
 		sql.append(" consultationNum =?,");
 		sql.append(" descri =?,");
 		sql.append(" attachment=?,");
-		sql.append(" user_userId=?,");
-		sql.append(" shop_shopId=?,");
-		sql.append(" industry_industryId=?");
+		sql.append(" userId=?,");
+		sql.append(" shopId=?,");
+		sql.append(" industry_industryId=?,");
 		sql.append(" finance_financeId=?");
 		sql.append(" where ProFinanceId = "+proFinance.getProFinanceId());
 		try {

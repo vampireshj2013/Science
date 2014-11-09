@@ -27,9 +27,9 @@ public class PatentBuyDao {
 			conn=JDBCUtil.getMySqlConnection();
 			StringBuffer sql=new StringBuffer();
 			sql.append("insert into patentbuy(expectMoney,searchKey,attentionNum,consultationNum"
-					+",descri,attachment,userId,shopId,industryId,patentId,buyTypeId) values (?,?,?,?,?,?,?,?,?,?,?)");
+					+",descri,attachment,user_userId,shop_shopId,industry_industryId,patent_patentId,buyType_buyTypeId) values (?,?,?,?,?,?,?,?,?,?,?)");
 			PreparedStatement preStatement=conn.prepareStatement(sql.toString());
-			preStatement.setInt(1, patentBuy.getExpectMoney());
+			preStatement.setDouble(1, patentBuy.getExpectMoney());
 			preStatement.setString(2, patentBuy.getSearchKey());
 			preStatement.setInt(3, patentBuy.getAttentionNum());
 			preStatement.setInt(4, patentBuy.getConsultationNum());
@@ -64,6 +64,7 @@ public class PatentBuyDao {
 			else{
 				preStatement.setInt(11, patentBuy.getBuyType().getBuyTypeId());
 			}
+			result = preStatement.execute();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -97,7 +98,7 @@ public class PatentBuyDao {
 		try {
 			conn = JDBCUtil.getMySqlConnection();
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-			preStatement.setInt(1, patentBuy.getExpectMoney());
+			preStatement.setDouble(1, patentBuy.getExpectMoney());
 			preStatement.setString(2, patentBuy.getSearchKey());
 			preStatement.setInt(3, patentBuy.getAttentionNum());
 			preStatement.setInt(4, patentBuy.getConsultationNum());
@@ -174,7 +175,7 @@ public class PatentBuyDao {
 			return false;
 		
 	}
-	public PatentBuy inquerypatentBuyById(int id){
+	public PatentBuy inqueryPatentBuyById(int id){
 		PatentBuy patentBuy =null;
 		String sql = "select * from patentbuy where patentBuyId = ?";
 		try {
@@ -251,6 +252,10 @@ public class PatentBuyDao {
 				patentBuy.setSearchKey(rs.getString("searchKey"));
 				
 				
+				PatentDao patentDao=new PatentDao();
+				patentBuy.setPatent(patentDao.inqueryPatentById(rs.getInt("patent_patentId")));
+				BuyTypeDao buyTypeDao=new BuyTypeDao();
+				patentBuy.setBuyType(buyTypeDao.inqueryBuyTypeById(rs.getInt("buyType_buyTypeId")));
 				
 				/**
 				 * 省略了级联查询的方法，待后面所有的查询方法都写好之后再填上

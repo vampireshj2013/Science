@@ -1,5 +1,7 @@
 package com.jdbc.test;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.junit.Test;
@@ -12,6 +14,7 @@ import com.science.model.Maturity;
 import com.science.model.SciAchievement;
 import com.science.model.Shop;
 import com.science.model.User;
+import com.science.util.JDBCUtil;
 
 public class SciAchievementTest {
 	private SciAchievementDao dao ;
@@ -21,7 +24,7 @@ public class SciAchievementTest {
 		for(int i =0;i<10;i++){
 			SciAchievement sciAchievement = new SciAchievement();
 			sciAchievement.setAttachment("attachment-123");
-			sciAchievement.setSearchKey("searchKey22whj");
+			sciAchievement.setSearchKey("science");
 			sciAchievement.setConsultationNum(123);
 			sciAchievement.setTransFee(123.45678);
 			sciAchievement.setDescri("descri"+i);
@@ -46,11 +49,11 @@ public class SciAchievementTest {
 		
 	}
 	@Test
-	public void updateSciA1chievement(){
+	public void updateSciAchievement(){
 		dao = new SciAchievementDao();
 		SciAchievement sciAchievement = new SciAchievement();
 		sciAchievement.setAttachment("attachment-123");
-		sciAchievement.setSearchKey("searchKey22whj");
+		sciAchievement.setSearchKey("science");
 		sciAchievement.setConsultationNum(123);
 		sciAchievement.setTransFee(123.45678);
 		User user = new User();
@@ -72,13 +75,22 @@ public class SciAchievementTest {
 		sciAchievement.setSciAchievementId(1);
 		
 		boolean result = dao.updateSciAchievement(sciAchievement);
+		System.out.println("***************update***************");
 		System.out.println(result);
 	}
 	@Test
 	public void querySciAchievement(){
 		dao = new SciAchievementDao();
+		System.out.println("***************query***************");
 		System.out.println(dao.inquerySciAchievementById(1).getDescri());
 		System.out.println(dao.inquerySciAchievementById(1).getMaturity().getMaturityDesc());
+	}
+	@Test
+	public void deleteSciAchievement(){
+		dao = new SciAchievementDao();		
+		boolean result=dao.deleteSciAchievement(2);
+		System.out.println("***************delete***************");
+		System.out.println(result);
 	}
 	@Test
 	public void searchSciAchievementByCondition(){
@@ -87,6 +99,7 @@ public class SciAchievementTest {
 		sciAchievement.setDescri("de");
 		List<SciAchievement> result = dao.searchSciAchievementByCondition(sciAchievement, 0, 10);
 		System.out.println(result.size());
+		System.out.println("**************search****************");
 		for(SciAchievement sci:result){
 			System.out.print(sci.getSciAchievementId()+"\t");
 			System.out.println(sci.getMaturity().getMaturityDesc());
@@ -96,13 +109,16 @@ public class SciAchievementTest {
 	public void inqueryMaturityById(){
 		MaturityDao dao = new MaturityDao();
 		Maturity maturity = dao.inqueryMaturityById(1);
+		System.out.println("***************inqueryMaturity***************");
 		System.out.println(maturity.getMaturityDesc());
 	}
 	@Test
 	public void searchAllMaturity(){
 		MaturityDao dao = new MaturityDao();
 		List<Maturity> result = dao.searchAllMaturity();
+		System.out.println("***************searchAllMaturity***************");
 		for(Maturity maturity:result)
 		System.out.println(maturity.getMaturityDesc());
 	}
+	
 }

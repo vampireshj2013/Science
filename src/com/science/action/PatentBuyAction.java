@@ -46,7 +46,7 @@ public class PatentBuyAction extends ActionSupport{
 		return SUCCESS;
 	}
 	public String updateInit(){
-		patentBuy = dao.inquerypatentBuyById(id);
+		patentBuy = dao.inqueryPatentBuyById(id);
 		/*List<Maturity> maturitys=maturityDao.searchAllMaturity();
 		ActionContext.getContext().put("maturitys", maturitys);*/
 		

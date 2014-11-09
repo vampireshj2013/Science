@@ -28,12 +28,12 @@ public class PatentTranDao {
 			conn= JDBCUtil.getMySqlConnection();
 			StringBuffer sql=new StringBuffer();
 			sql.append("insert into patenttransfer(patentNum,patentee,lawStatus,transferFee,searchKey,attentionNum,consultationNum"
-				+ ",descri,attachment,userId,shopId,industryId,cooperationId,patentId) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+				+ ",descri,attachment,userId,shopId,industry_industryId,cooperation_cooperationId,patent_patentId) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
 			preStatement.setInt(1, patentTran.getPatentNum());
 			preStatement.setString(2, patentTran.getPatentee());
 			preStatement.setString(3,patentTran.getLawStatus());
-			preStatement.setFloat(4, patentTran.getTransferFee());
+			preStatement.setDouble(4, patentTran.getTransferFee());
 			preStatement.setString(5,patentTran.getSearchKey());
 			preStatement.setInt(6, patentTran.getAttentionNum());
 			preStatement.setInt(7, patentTran.getConsultationNum());
@@ -67,6 +67,7 @@ public class PatentTranDao {
 			}else{
 				preStatement.setInt(14,patentTran.getPatent().getPatentId());
 			}
+			result = preStatement.execute();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -272,7 +273,8 @@ public class PatentTranDao {
 				 */
 				/*MaturityDao maturityDao = new MaturityDao();
 				sciAchievement.setMaturity(maturityDao.inqueryManurityById(rs.getInt("maturityId")));*/
-				
+				PatentDao patentDao=new PatentDao();
+				patentTran.setPatent(patentDao.inqueryPatentById(rs.getInt("patent_patentId")));
 				
 				result.add(patentTran);
 			}

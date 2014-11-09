@@ -28,7 +28,7 @@ public class TecExpertDao {
 			conn= JDBCUtil.getMySqlConnection();
 			StringBuffer sql=new StringBuffer();
 			sql.append("insert into tecExpert(institution,major,title,sex,duty,education,searchKey,attentionNum,consultationNum"
-				+ ",descri,attachment,userId,shopId,industryId,classId) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+				+ ",descri,attachment,user_userId,shop_shopId,industry_industryId,classId) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
 			preStatement.setString(1, tecExpert.getInstitution());
 			preStatement.setString(2, tecExpert.getMajor());
@@ -64,7 +64,7 @@ public class TecExpertDao {
 			else{
 				preStatement.setInt(15, tecExpert.getCity().getClassId());
 			}
-			
+			result=preStatement.execute();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -95,8 +95,8 @@ public class TecExpertDao {
 		sql.append(" attachment=?,");
 		sql.append(" user_userId=?,");
 		sql.append(" shop_shopId=?,");
-		sql.append(" industry_industryId=?");
-		sql.append(" classId=?,");
+		sql.append(" industry_industryId=?,");
+		sql.append(" classId=?");
 		
 		sql.append(" where tecExpertId = "+tecExpert.getTecExpertId());
 		try {

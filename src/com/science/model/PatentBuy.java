@@ -7,7 +7,7 @@ public class PatentBuy {
 	private User user;
 	private Shop shop;
 	private Patent patent;
-	private int expectMoney;//预期投资额
+	private double expectMoney;//预期投资额
 	private String searchKey;//关键词
 	private int attentionNum;//关注数
 	private int consultationNum;//咨询数
@@ -49,10 +49,10 @@ public class PatentBuy {
 	public void setPatent(Patent patent) {
 		this.patent = patent;
 	}
-	public int getExpectMoney() {
+	public double getExpectMoney() {
 		return expectMoney;
 	}
-	public void setExpectMoney(int expectMoney) {
+	public void setExpectMoney(double expectMoney) {
 		this.expectMoney = expectMoney;
 	}
 	public String getSearchKey() {

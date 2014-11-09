@@ -35,7 +35,7 @@ public class BuyTypeDao {
 			if(rs.next()){
 				buyType = new BuyType();
 				buyType.setBuyTypeId(rs.getInt("buyTypeId"));
-				
+				buyType.setBuyTypeDesc(rs.getString("buyTypeDesc"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
