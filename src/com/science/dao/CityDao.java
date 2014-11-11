@@ -26,7 +26,7 @@ public class CityDao {
 	}
 	public City inqueryCityById(int id){
 		City  city =null;
-		String sql = "select * from city where classId = ?";
+		String sql = "select * from city where class_Id = ?";
 		try {
 			conn = JDBCUtil.getMySqlConnection();
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
@@ -34,8 +34,10 @@ public class CityDao {
 			ResultSet rs = preStatement.executeQuery();
 			if(rs.next()){
 				city = new City();
-				city.setClassId(rs.getInt("classId"));
-				
+				city.setClassId(rs.getInt("class_Id"));
+				city.setClassName(rs.getString("class_name"));
+				city.setClassParentId(rs.getInt("class_parent_id"));
+				city.setClassType(rs.getInt("class_type"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -77,5 +79,32 @@ public class CityDao {
 		}
 		return result;
 	}
-
+	public List<City> searchChildCityById(int id){
+		StringBuilder sql = new StringBuilder("SELECT * FROM science.city where class_parent_id =?");
+		 List<City> result = new ArrayList<City>();
+		try {
+			conn = JDBCUtil.getMySqlConnection();
+			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
+			preStatement.setInt(1, id);
+			ResultSet rs =  preStatement.executeQuery();
+			while(rs.next()){
+				City city = new City();
+				city.setClassId(rs.getInt("class_Id"));
+				city.setClassName(rs.getString("class_name"));
+				city.setClassParentId(rs.getInt("class_parent_id"));
+				city.setClassType(rs.getInt("class_type"));
+				result.add(city);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				JDBCUtil.close(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 }
