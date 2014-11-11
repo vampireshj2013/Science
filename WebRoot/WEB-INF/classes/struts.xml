@@ -58,6 +58,9 @@
             <result name="list">/list/proFinanceList.jsp</result>
             <result name="success">/structs.jsp</result>
         </action>
+         <action name="city_*" class="com.science.action.CityActionDemo" method="{1}">
+           <result name="success">/list/cityDemo.jsp</result> 
+        </action>
     </package>
 
     <include file="example.xml"/>
