@@ -63,9 +63,9 @@ public class ProFinanceAction extends ActionSupport{
 		List<Finance> finances=financeDao.searchAllFinance();
 		ActionContext.getContext().put("finances", finances);
 		
-		//return "updateInit";
+		return "updateInit";
 		
-		return "success";
+		//return "success";
 	}
 	public String update(){
 		dao.updateProFinance(proFinance);

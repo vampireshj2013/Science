@@ -14,7 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 		
-		
 		<s:iterator value="province" var="pro">
 			<s:a action="city_list.action">
 				<s:param name="id" value="#pro.classId" />

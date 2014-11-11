@@ -8,7 +8,7 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="true" />
 
-    <package name="default" namespace="/" extends="struts-default">
+    <package name="default" extends="struts-default">
 
         <default-action-ref name="index" />
 
@@ -54,7 +54,7 @@
             <result name="success">/structs.jsp</result>
         </action>
         <action name="proFinanceAction_*" class="com.science.action.ProFinanceAction" method="{1}">
-           <result name="updateInit">/update/update_ProFinance.jsp</result> 
+           <result name="updateInit">/update_ProFinance.jsp</result> 
             <result name="list">/list/proFinanceList.jsp</result>
             <result name="success">/structs.jsp</result>
         </action>

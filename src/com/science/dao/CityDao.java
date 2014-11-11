@@ -80,7 +80,7 @@ public class CityDao {
 		return result;
 	}
 	public List<City> searchChildCityById(int id){
-		StringBuilder sql = new StringBuilder("SELECT * FROM science.city where class_parent_id =?");
+		StringBuilder sql = new StringBuilder("SELECT * FROM city where class_parent_id =?");
 		 List<City> result = new ArrayList<City>();
 		try {
 			conn = JDBCUtil.getMySqlConnection();
