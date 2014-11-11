@@ -1,11 +1,22 @@
 package com.science.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class City {
 	
 	private int classId;
 	private String className;
 	private int classParentId;
 	private int classType;
+	private List<City> citys = new ArrayList<City>();
+	
+	public List<City> getCitys() {
+		return citys;
+	}
+	public void setCitys(List<City> citys) {
+		this.citys = citys;
+	}
 	public int getClassId() {
 		return classId;
 	}

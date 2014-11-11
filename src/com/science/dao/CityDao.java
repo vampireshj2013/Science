@@ -77,5 +77,32 @@ public class CityDao {
 		}
 		return result;
 	}
-
+	public List<City> searchChildCityById(int id){
+		StringBuilder sql = new StringBuilder("SELECT * FROM science.city where class_parent_id =?");
+		 List<City> result = new ArrayList<City>();
+		try {
+			conn = JDBCUtil.getMySqlConnection();
+			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
+			preStatement.setInt(1, id);
+			ResultSet rs =  preStatement.executeQuery();
+			while(rs.next()){
+				City city = new City();
+				city.setClassId(rs.getInt("class_Id"));
+				city.setClassName(rs.getString("class_name"));
+				city.setClassParentId(rs.getInt("class_parent_id"));
+				city.setClassType(rs.getInt("class_type"));
+				result.add(city);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				JDBCUtil.close(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 }
