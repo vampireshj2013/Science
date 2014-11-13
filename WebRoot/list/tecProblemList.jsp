@@ -24,7 +24,10 @@
 		</thead>
 		<s:iterator value="#result" var="tecProblem">
 			<tr>
-					<td><s:property value="#tecProblem.tecProblemId" /></td>
+					<td>
+						<a href="tecProblemAction_listById?id=<s:property value="#tecProblem.tecProblemId" />">
+						<s:property value="#tecProblem.tecProblemId" />
+						</a></td>
 					<td><s:property value="#tecProblem.head" /></td>
 					<td><s:property value="#tecProblem.industry" /></td>
 					<td><s:property value="#tecProblem.expectMoney" /></td>

@@ -13,7 +13,7 @@
 		<thead>
 			<tr>
 				<td>ID</td>
-				<td><s:property value="patentTran.patentTranId" /></td>
+				<td><s:property value="patentTran.patentTransferId" /></td>
 			</tr>
 			<tr>
 				<td>标题</td>

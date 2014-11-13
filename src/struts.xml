@@ -43,21 +43,25 @@
          <action name="tecExpertAction_*" class="com.science.action.TecExpertAction" method="{1}">
             <result name="updateInit">/update/update_TecExpert.jsp</result> 
             <result name="list">/list/tecExpertList.jsp</result>
+            <result name="listId">/listById/tecExpertListId.jsp</result>
             <result name="success">/structs.jsp</result>
         </action>
           <action name="tecProblemAction_*" class="com.science.action.TecProblemAction" method="{1}">
             <result name="updateInit">/update/update_TecProblem.jsp</result> 
             <result name="list">/list/tecProblemList.jsp</result> 
+            <result name="listId">/listById/tecProblemListId.jsp</result>
             <result name="success">/structs.jsp</result>
         </action>
         <action name="proInvestAction_*" class="com.science.action.ProInvestAction" method="{1}">
             <result name="updateInit">/update/update_ProInvest.jsp</result> 
             <result name="list">/list/proInvestList.jsp</result>
+            <result name="listId">/listById/proInvestListId.jsp</result>
             <result name="success">/structs.jsp</result>
         </action>
         <action name="proFinanceAction_*" class="com.science.action.ProFinanceAction" method="{1}">
-           <result name="updateInit">/update/update_ProFinance.jsp</result> 
+            <result name="updateInit">/update/update_ProFinance.jsp</result> 
             <result name="list">/list/proFinanceList.jsp</result>
+            <result name="listId">/listById/proFinanceListId.jsp</result>
             <result name="success">/structs.jsp</result>
         </action>
          <action name="city_*" class="com.science.action.CityActionDemo" method="{1}">

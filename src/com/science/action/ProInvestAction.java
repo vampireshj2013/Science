@@ -75,5 +75,16 @@ public class ProInvestAction extends ActionSupport{
 		ActionContext.getContext().put("result", result);
 		return "list";
 	}
-
+	public String listById(){
+		proInvest = dao.inqueryProInvestById(id);
+		/*List<Maturity> maturitys=maturityDao.searchAllMaturity();
+		ActionContext.getContext().put("maturitys", maturitys);*/
+		List<Industry> industrys=industryDao.searchAllIndustry();
+		ActionContext.getContext().put("industrys", industrys);
+		List<Invest> invests=investDao.searchAllInvest();
+		ActionContext.getContext().put("invests", invests);
+		
+		return "listId";
+		//return "success";
+	}
 }

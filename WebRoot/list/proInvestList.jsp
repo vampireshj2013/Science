@@ -26,7 +26,11 @@
 		</thead>
 		<s:iterator value="#result" var="proInvest">
 			<tr>
-					<td><s:property value="#proInvest.proInvestId" /></td>
+					<td>
+						<a href="proInvestAction_listById?id=<s:property value="#proInvest.proInvestId" />">
+					 	<s:property value="#proInvest.proInvestId" />
+					 	</a>
+					</td>
 					<td><s:property value="#proInvest.head" /></td>
 					<td><s:property value="#proInvest.industry" /></td>
 					<td><s:property value="#proInvest.city"/></td>

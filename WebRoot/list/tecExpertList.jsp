@@ -15,28 +15,34 @@
 			<tr>
 				<td>ID</td>
 				<td>标题</td>
+				<td>性别</td>
 				<td>研究领域</td>
 				<td>所属机构</td>
 				<td>技术专长</td>
 				<td>职称</td>
-				<td>职务</td>
-				<td>性别</td>
+				<td>职务</td>			
 				<td>学历</td>
 				<td>关键字</td>
+				<td>专家介绍</td>
 			</tr>
 		</thead>
 		<s:iterator value="#result" var="tecExpert">
 			<tr>
-					<td><s:property value="#tecExpert.tecExpertId" /></td>
+					<td>
+					<a href="tecExpertAction_listById?id=<s:property value="#tecExpert.tecExpertId" />">
+					<s:property value="#tecExpert.tecExpertId" />
+					</a></td>
 					<td><s:property value="#tecExpert.head" /></td>
+					<td><s:property value="#tecExpert.sex" /></td>
 					<td><s:property value="#tecExpert.industry" /></td>
 					<td><s:property value="#tecExpert.institution" /></td>
 					<td><s:property value="#tecExpert.major" /></td>
 					<td><s:property value="#tecExpert.title" /></td>
 					<td><s:property value="#tecExpert.duty" /></td>
-					<td><s:property value="#tecExpert.sex" /></td>
+					
 					<td><s:property value="#tecExpert.education" /></td>
 					<td><s:property value="#tecExpert.searchKey" /></td>
+					<td><s:property value="#tecExpert.descri" /></td>
 			</tr>
 		</s:iterator>
 		</table>

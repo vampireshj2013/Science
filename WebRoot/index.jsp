@@ -20,6 +20,7 @@ height:60px;
 padding:0;
 
 overflow:hidden;
+
 }
 
 .nav ul li{
@@ -57,10 +58,15 @@ color:#FFF;
 background-color:#36C981;
 
 }
+#image
+{
+ background-color:#C3DE81;
+ 
+}
 </style>
 </head>
 <body>
-        <table  height="200" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <table  id="image" height="200" width="100%" border="0" cellspacing="0" cellpadding="0">
                            <tr>
                                <td >
                                <div class="nav" >

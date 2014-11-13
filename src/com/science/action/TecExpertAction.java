@@ -72,5 +72,17 @@ public class TecExpertAction extends ActionSupport{
 		ActionContext.getContext().put("result", result);
 		return "list";
 	}
-
+	public String listById(){
+		tecExpert = dao.inqueryTecExpertById(id);
+		/*List<Maturity> maturitys=maturityDao.searchAllMaturity();
+		ActionContext.getContext().put("maturitys", maturitys);*/
+		List<Industry> industrys=industryDao.searchAllIndustry();
+		ActionContext.getContext().put("industrys", industrys);
+		
+		List<City> citys=cityDao.searchAllCity();
+		ActionContext.getContext().put("citys", citys);
+		
+		return "listId";
+		//return "success";
+	}
 }

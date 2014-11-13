@@ -28,6 +28,20 @@
   color:#000000;
   background-color:#EAF2D3;
   }
+  #list a:link 
+{  
+	color: #000000; 
+	text-decoration: none
+	}
+#list a:visited 
+{  
+	color: #000000; 
+	text-decoration: none
+	}
+#list a:hover {  
+	color: #5ea5ec; 
+	text-decoration: none
+	}
 .nav ul{
 
 width:980px;

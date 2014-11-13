@@ -27,7 +27,10 @@
 		</thead>
 		<s:iterator value="#result" var="patentBuy">
 			<tr>
-					<td><a href="patentBuyAction_listById?id=<s:property value="#patentBuy.patentBuyId" />"><s:property value="#patentBuy.patentBuyId" /></a>
+					<td>
+						<a href="patentBuyAction_listById?id=<s:property value="#patentBuy.patentBuyId" />">
+						<s:property value="#patentBuy.patentBuyId" />
+					</a>
 					</td>
 					<td><s:property value="#patentBuy.head" /></td>
 					<td><s:property value="#patentBuy.industry" /></td>

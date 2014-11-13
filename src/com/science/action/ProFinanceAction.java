@@ -10,9 +10,11 @@ import com.science.dao.IndustryDao;
 import com.science.dao.InvestDao;
 import com.science.dao.ProFinanceDao;
 import com.science.dao.ProInvestDao;
+import com.science.model.Cooperation;
 import com.science.model.Finance;
 import com.science.model.Industry;
 import com.science.model.Invest;
+import com.science.model.Patent;
 import com.science.model.ProFinance;
 import com.science.model.ProInvest;
 import com.science.util.PageUtil;
@@ -79,6 +81,18 @@ public class ProFinanceAction extends ActionSupport{
 		pageUtil.setRecordCount(dao.countProFinanceByCondition(proFinance));
 		ActionContext.getContext().put("result", result);
 		return "list";
+	}
+	public String listById(){
+		proFinance= dao.inqueryProFinanceById(id);
+		/*List<Maturity> maturitys=maturityDao.searchAllMaturity();
+		ActionContext.getContext().put("maturitys", maturitys);*/
+		List<Industry> industrys=industryDao.searchAllIndustry();
+		ActionContext.getContext().put("industrys", industrys);
+		List<Finance> finances=financeDao.searchAllFinance();
+		ActionContext.getContext().put("finances", finances);
+		
+		
+		return "listId";
 	}
 
 }
