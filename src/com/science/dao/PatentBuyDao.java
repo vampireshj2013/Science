@@ -26,43 +26,44 @@ public class PatentBuyDao {
 		try{
 			conn=JDBCUtil.getMySqlConnection();
 			StringBuffer sql=new StringBuffer();
-			sql.append("insert into patentbuy(expectMoney,searchKey,attentionNum,consultationNum"
-					+",descri,attachment,user_userId,shop_shopId,industry_industryId,patent_patentId,buyType_buyTypeId) values (?,?,?,?,?,?,?,?,?,?,?)");
+			sql.append("insert into patentbuy(head,expectMoney,searchKey,attentionNum,consultationNum"
+					+",descri,attachment,user_userId,shop_shopId,industry_industryId,patent_patentId,buyType_buyTypeId) values (?,?,?,?,?,?,?,?,?,?,?,?)");
 			PreparedStatement preStatement=conn.prepareStatement(sql.toString());
-			preStatement.setDouble(1, patentBuy.getExpectMoney());
-			preStatement.setString(2, patentBuy.getSearchKey());
-			preStatement.setInt(3, patentBuy.getAttentionNum());
-			preStatement.setInt(4, patentBuy.getConsultationNum());
-			preStatement.setString(5, patentBuy.getDescri());
-			preStatement.setString(6, patentBuy.getAttachment());
+			preStatement.setString(1, patentBuy.getHead());
+			preStatement.setDouble(2, patentBuy.getExpectMoney());
+			preStatement.setString(3, patentBuy.getSearchKey());
+			preStatement.setInt(4, patentBuy.getAttentionNum());
+			preStatement.setInt(5, patentBuy.getConsultationNum());
+			preStatement.setString(6, patentBuy.getDescri());
+			preStatement.setString(7, patentBuy.getAttachment());
 			if(patentBuy.getUser()==null){
-				preStatement.setSQLXML(7, null);
+				preStatement.setSQLXML(8, null);
 			}else{
-				preStatement.setInt(7, patentBuy.getUser().getUserId());
+				preStatement.setInt(8, patentBuy.getUser().getUserId());
 			}
 			if(patentBuy.getShop()==null){
-				preStatement.setString(8,null);
-			}
-			else{
-				preStatement.setInt(8, patentBuy.getShop().getShopId());
-			}
-			if(patentBuy.getIndustry()==null){
 				preStatement.setString(9,null);
 			}
 			else{
-				preStatement.setInt(9, patentBuy.getIndustry().getIndustryId());
+				preStatement.setInt(9, patentBuy.getShop().getShopId());
+			}
+			if(patentBuy.getIndustry()==null){
+				preStatement.setString(10,null);
+			}
+			else{
+				preStatement.setInt(10, patentBuy.getIndustry().getIndustryId());
 			}
 			
 			if(patentBuy.getPatent()==null){
-				preStatement.setString(10, null);
+				preStatement.setString(11, null);
 			}else{
-				preStatement.setInt(10,patentBuy.getPatent().getPatentId());
+				preStatement.setInt(11,patentBuy.getPatent().getPatentId());
 			}
 			if(patentBuy.getBuyType()==null){
-				preStatement.setString(11, null);
+				preStatement.setString(12, null);
 			}
 			else{
-				preStatement.setInt(11, patentBuy.getBuyType().getBuyTypeId());
+				preStatement.setInt(12, patentBuy.getBuyType().getBuyTypeId());
 			}
 			result = preStatement.execute();
 		}catch (SQLException e) {
@@ -83,6 +84,7 @@ public class PatentBuyDao {
 		}
 		StringBuffer sql = new StringBuffer();
 		sql.append("update patentbuy set expectMoney=?,");
+		sql.append(" head=?,");
 		sql.append(" searchKey =?,");
 		sql.append(" attentionNum =?,");
 		sql.append(" consultationNum =?,");
@@ -98,23 +100,17 @@ public class PatentBuyDao {
 		try {
 			conn = JDBCUtil.getMySqlConnection();
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-			preStatement.setDouble(1, patentBuy.getExpectMoney());
-			preStatement.setString(2, patentBuy.getSearchKey());
-			preStatement.setInt(3, patentBuy.getAttentionNum());
-			preStatement.setInt(4, patentBuy.getConsultationNum());
-			preStatement.setString(5, patentBuy.getDescri());
-			preStatement.setString(6, patentBuy.getAttachment());
+			preStatement.setString(1, patentBuy.getHead());
+			preStatement.setDouble(2, patentBuy.getExpectMoney());
+			preStatement.setString(3, patentBuy.getSearchKey());
+			preStatement.setInt(4, patentBuy.getAttentionNum());
+			preStatement.setInt(5, patentBuy.getConsultationNum());
+			preStatement.setString(6, patentBuy.getDescri());
+			preStatement.setString(7, patentBuy.getAttachment());
 			if(patentBuy.getUser()==null){
-				preStatement.setString(7,null);
-			} 
-			else{
-				preStatement.setInt(7,patentBuy.getUser().getUserId());
-			}
-			if(patentBuy.getBuyType()==null){
-				preStatement.setString(8, null);
-			}
-			else{
-				preStatement.setInt(8, patentBuy.getBuyType().getBuyTypeId());
+				preStatement.setSQLXML(8, null);
+			}else{
+				preStatement.setInt(8, patentBuy.getUser().getUserId());
 			}
 			if(patentBuy.getShop()==null){
 				preStatement.setString(9,null);
@@ -122,17 +118,23 @@ public class PatentBuyDao {
 			else{
 				preStatement.setInt(9, patentBuy.getShop().getShopId());
 			}
-
-			if(patentBuy.getPatent()==null){
-				preStatement.setString(10, null);
-			}else{
-				preStatement.setInt(10,patentBuy.getPatent().getPatentId());
-			}
 			if(patentBuy.getIndustry()==null){
-				preStatement.setString(11,null);
+				preStatement.setString(10,null);
 			}
 			else{
-				preStatement.setInt(11, patentBuy.getIndustry().getIndustryId());
+				preStatement.setInt(10, patentBuy.getIndustry().getIndustryId());
+			}
+			
+			if(patentBuy.getPatent()==null){
+				preStatement.setString(11, null);
+			}else{
+				preStatement.setInt(11,patentBuy.getPatent().getPatentId());
+			}
+			if(patentBuy.getBuyType()==null){
+				preStatement.setString(12, null);
+			}
+			else{
+				preStatement.setInt(12, patentBuy.getBuyType().getBuyTypeId());
 			}
 			
 			//Log4j打印日志
@@ -186,6 +188,7 @@ public class PatentBuyDao {
 			if(rs.next()){
 				patentBuy = new PatentBuy();
 				patentBuy.setPatentBuyId(rs.getInt("patentBuyId"));
+				patentBuy.setHead(rs.getString("head"));
 				patentBuy.setExpectMoney(rs.getInt("expectMoney"));
 				patentBuy.setAttachment(rs.getString("attachment"));
 				patentBuy.setAttentionNum(rs.getInt("attentionNum"));
@@ -244,6 +247,7 @@ public class PatentBuyDao {
 			while(rs.next()){
 				PatentBuy patentBuy = new PatentBuy();
 				patentBuy.setPatentBuyId(rs.getInt("patentBuyId"));
+				patentBuy.setHead(rs.getString("head"));
 				patentBuy.setExpectMoney(rs.getInt("expectMoney"));
 				patentBuy.setAttachment(rs.getString("attachment"));
 				patentBuy.setAttentionNum(rs.getInt("attentionNum"));

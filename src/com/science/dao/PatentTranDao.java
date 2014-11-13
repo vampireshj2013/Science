@@ -27,45 +27,46 @@ public class PatentTranDao {
 		try{
 			conn= JDBCUtil.getMySqlConnection();
 			StringBuffer sql=new StringBuffer();
-			sql.append("insert into patenttransfer(patentNum,patentee,lawStatus,transferFee,searchKey,attentionNum,consultationNum"
-				+ ",descri,attachment,userId,shopId,industry_industryId,cooperation_cooperationId,patent_patentId) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			sql.append("insert into patenttransfer(head,patentNum,patentee,lawStatus,transferFee,searchKey,attentionNum,consultationNum"
+				+ ",descri,attachment,userId,shopId,industry_industryId,cooperation_cooperationId,patent_patentId) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-			preStatement.setInt(1, patentTran.getPatentNum());
-			preStatement.setString(2, patentTran.getPatentee());
-			preStatement.setString(3,patentTran.getLawStatus());
-			preStatement.setDouble(4, patentTran.getTransferFee());
-			preStatement.setString(5,patentTran.getSearchKey());
-			preStatement.setInt(6, patentTran.getAttentionNum());
-			preStatement.setInt(7, patentTran.getConsultationNum());
-			preStatement.setString(8, patentTran.getDescri());
-			preStatement.setString(9, patentTran.getAttachment());
+			preStatement.setString(1, patentTran.getHead());
+			preStatement.setInt(2, patentTran.getPatentNum());
+			preStatement.setString(3, patentTran.getPatentee());
+			preStatement.setString(4,patentTran.getLawStatus());
+			preStatement.setDouble(5, patentTran.getTransferFee());
+			preStatement.setString(6,patentTran.getSearchKey());
+			preStatement.setInt(7, patentTran.getAttentionNum());
+			preStatement.setInt(8, patentTran.getConsultationNum());
+			preStatement.setString(9, patentTran.getDescri());
+			preStatement.setString(10, patentTran.getAttachment());
 			if(patentTran.getUser()==null){
-				preStatement.setSQLXML(10, null);
+				preStatement.setSQLXML(11, null);
 			}else{
-				preStatement.setInt(10, patentTran.getUser().getUserId());
+				preStatement.setInt(11, patentTran.getUser().getUserId());
 			}
 			if(patentTran.getShop()==null){
-				preStatement.setString(11,null);
-			}
-			else{
-				preStatement.setInt(11, patentTran.getShop().getShopId());
-			}
-			if(patentTran.getIndustry()==null){
 				preStatement.setString(12,null);
 			}
 			else{
-				preStatement.setInt(12, patentTran.getIndustry().getIndustryId());
+				preStatement.setInt(12, patentTran.getShop().getShopId());
 			}
-			if(patentTran.getCooperation()==null){
+			if(patentTran.getIndustry()==null){
 				preStatement.setString(13,null);
 			}
 			else{
-				preStatement.setInt(13, patentTran.getCooperation().getCooperationId());
+				preStatement.setInt(13, patentTran.getIndustry().getIndustryId());
+			}
+			if(patentTran.getCooperation()==null){
+				preStatement.setString(14,null);
+			}
+			else{
+				preStatement.setInt(14, patentTran.getCooperation().getCooperationId());
 			}
 			if(patentTran.getPatent()==null){
-				preStatement.setString(14, null);
+				preStatement.setString(15, null);
 			}else{
-				preStatement.setInt(14,patentTran.getPatent().getPatentId());
+				preStatement.setInt(15,patentTran.getPatent().getPatentId());
 			}
 			result = preStatement.execute();
 		}catch (SQLException e) {
@@ -87,6 +88,7 @@ public class PatentTranDao {
 		}
 		StringBuffer sql = new StringBuffer();
 		sql.append("update patenttransfer set patentNum=?,");
+		sql.append(" head=?,");
 		sql.append(" patentee = ?,");
 		sql.append(" lawStatus = ?,");
 		sql.append(" transferFee = ?,");
@@ -105,26 +107,20 @@ public class PatentTranDao {
 		try {
 			conn = JDBCUtil.getMySqlConnection();
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-			preStatement.setInt(1, patentTran.getPatentNum());
-			preStatement.setString(2, patentTran.getPatentee());
-			preStatement.setString(3, patentTran.getLawStatus());
-			preStatement.setDouble(4, patentTran.getTransferFee());
-			preStatement.setString(5, patentTran.getSearchKey());
-			preStatement.setInt(6, patentTran.getAttentionNum());
-			preStatement.setInt(7, patentTran.getConsultationNum());
-			preStatement.setString(8, patentTran.getDescri());
-			preStatement.setString(9, patentTran.getAttachment());
+			preStatement.setString(1, patentTran.getHead());
+			preStatement.setInt(2, patentTran.getPatentNum());
+			preStatement.setString(3, patentTran.getPatentee());
+			preStatement.setString(4,patentTran.getLawStatus());
+			preStatement.setDouble(5, patentTran.getTransferFee());
+			preStatement.setString(6,patentTran.getSearchKey());
+			preStatement.setInt(7, patentTran.getAttentionNum());
+			preStatement.setInt(8, patentTran.getConsultationNum());
+			preStatement.setString(9, patentTran.getDescri());
+			preStatement.setString(10, patentTran.getAttachment());
 			if(patentTran.getUser()==null){
-				preStatement.setString(10,null);
-			} 
-			else{
-				preStatement.setInt(10,patentTran.getUser().getUserId());
-			}
-			if(patentTran.getCooperation()==null){
-				preStatement.setString(11,null);
-			}
-			else{
-				preStatement.setInt(11, patentTran.getCooperation().getCooperationId());
+				preStatement.setSQLXML(11, null);
+			}else{
+				preStatement.setInt(11, patentTran.getUser().getUserId());
 			}
 			if(patentTran.getShop()==null){
 				preStatement.setString(12,null);
@@ -132,18 +128,22 @@ public class PatentTranDao {
 			else{
 				preStatement.setInt(12, patentTran.getShop().getShopId());
 			}
-			
-			if(patentTran.getPatent()==null){
+			if(patentTran.getIndustry()==null){
 				preStatement.setString(13,null);
 			}
 			else{
-				preStatement.setInt(13, patentTran.getPatent().getPatentId());
+				preStatement.setInt(13, patentTran.getIndustry().getIndustryId());
 			}
-			if(patentTran.getIndustry()==null){
+			if(patentTran.getCooperation()==null){
 				preStatement.setString(14,null);
 			}
 			else{
-				preStatement.setInt(14, patentTran.getIndustry().getIndustryId());
+				preStatement.setInt(14, patentTran.getCooperation().getCooperationId());
+			}
+			if(patentTran.getPatent()==null){
+				preStatement.setString(15, null);
+			}else{
+				preStatement.setInt(15,patentTran.getPatent().getPatentId());
 			}
 			//Log4j打印日志
 			log.debug("\nSQL语句：\n");
@@ -196,6 +196,7 @@ public class PatentTranDao {
 			if(rs.next()){
 				patentTran = new PatentTran();
 				patentTran.setPatentTransferId(rs.getInt("patentTransferId"));
+				patentTran.setHead(rs.getString("head"));
 				patentTran.setPatentNum(rs.getInt("patentNum"));
 				patentTran.setPatentee(rs.getString("patentee"));
 				patentTran.setLawStatus(rs.getString("lawStatus"));
@@ -256,6 +257,7 @@ public class PatentTranDao {
 			while(rs.next()){
 				PatentTran patentTran = new PatentTran();
 				patentTran.setPatentTransferId(rs.getInt("patentTransferId"));
+				patentTran.setHead(rs.getString("head"));
 				patentTran.setPatentNum(rs.getInt("patentNum"));
 				patentTran.setPatentee(rs.getString("patentee"));
 				patentTran.setLawStatus(rs.getString("lawStatus"));
@@ -275,7 +277,8 @@ public class PatentTranDao {
 				sciAchievement.setMaturity(maturityDao.inqueryManurityById(rs.getInt("maturityId")));*/
 				PatentDao patentDao=new PatentDao();
 				patentTran.setPatent(patentDao.inqueryPatentById(rs.getInt("patent_patentId")));
-				
+				CooperationDao cooperationDao=new CooperationDao();
+				patentTran.setCooperation(cooperationDao.inqueryCooperationById(rs.getInt("cooperation_cooperationId")));
 				result.add(patentTran);
 			}
 			

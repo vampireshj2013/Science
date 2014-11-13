@@ -7,6 +7,7 @@ public class TecExpert {
 	private User user;
 	private Shop shop;
 	private String institution;//所属机构
+	private String head;//标题
 	private String major;//技术专长
 	private String title;//职称
 	private String duty;//职务
@@ -112,6 +113,12 @@ public class TecExpert {
 	}
 	public void setAttachment(String attachment) {
 		this.attachment = attachment;
+	}
+	public String getHead() {
+		return head;
+	}
+	public void setHead(String head) {
+		this.head = head;
 	}
 	
 

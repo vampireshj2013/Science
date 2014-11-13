@@ -11,6 +11,7 @@
 <body>
 	<form id="form" method="post" action="${basePath }tecProblemAction_update">
 		ID:<input name="tecProblem.tecProblemId" type="hidden" value="<s:property value="tecProblem.tecProblemId" />"><br/>
+		标题：<input name="tecProblem.head" type="text" value="<s:property value="tecProblem.head" />"><br/>
 		行业分类:<input name="tecProblem.industry" type="text" value="<s:property value="tecProblem.industry" />"><br/>
 		预投入金额:<input name="tecProblem.expectMoney" type="text" value="<s:property value="tecProblem.expectMoney" />"><br/>
 		截止日期:<input name="tecProblem.endTime" type="text" value="<s:property value="tecProblem.endTime" />"><br/>

@@ -3,7 +3,7 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Buysitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,6 +12,7 @@
 <body>
 	<form id="form" method="post" action="${basePath }patentBuyAction_update">
 		ID:<input name="patentBuy.patentBuyId" type="hidden" value="<s:property value="patentBuy.patentBuyId" />"><br/>
+		标题:<input name="patentBuy.head" type="text" value="<s:property value="patentBuy.head" />"><br/>
 		所属行业：<input name="patentBuy.industry" type="text"	 value="<s:property value="patentBuy.industry" />"><br/>
 		
 		求购方式:

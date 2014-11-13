@@ -4,14 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>技术难题</title>
+<link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 <body>
 
-<table>
+<%@ include file="../index.jsp"%>
+		<table id="list">
 		<thead>
 			<tr>
 				<td>ID</td>
+				<td>标题</td>
 				<td>行业分类</td>
 				<td>预投入资金</td>
 				<td>截止日期</td>
@@ -22,11 +25,12 @@
 		<s:iterator value="#result" var="tecProblem">
 			<tr>
 					<td><s:property value="#tecProblem.tecProblemId" /></td>
+					<td><s:property value="#tecProblem.head" /></td>
 					<td><s:property value="#tecProblem.industry" /></td>
 					<td><s:property value="#tecProblem.expectMoney" /></td>
 					<td><s:property value="#tecProblem.endTime" /></td>
 					<td><s:property value="#tecProblem.searchKey" /></td>
-					<td><s:property value="#tecProblem.desci" /></td>
+					<td><s:property value="#tecProblem.descri" /></td>
 			</tr>
 		</s:iterator>
 		</table>

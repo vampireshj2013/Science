@@ -4,14 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>技术专家</title>
+<link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 <body>
 
-<table>
+<%@ include file="../index.jsp"%>
+		<table id="list">
 		<thead>
 			<tr>
 				<td>ID</td>
+				<td>标题</td>
 				<td>研究领域</td>
 				<td>所属机构</td>
 				<td>技术专长</td>
@@ -25,6 +28,7 @@
 		<s:iterator value="#result" var="tecExpert">
 			<tr>
 					<td><s:property value="#tecExpert.tecExpertId" /></td>
+					<td><s:property value="#tecExpert.head" /></td>
 					<td><s:property value="#tecExpert.industry" /></td>
 					<td><s:property value="#tecExpert.institution" /></td>
 					<td><s:property value="#tecExpert.major" /></td>

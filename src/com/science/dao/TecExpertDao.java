@@ -27,42 +27,43 @@ public class TecExpertDao {
 		try{
 			conn= JDBCUtil.getMySqlConnection();
 			StringBuffer sql=new StringBuffer();
-			sql.append("insert into tecExpert(institution,major,title,sex,duty,education,searchKey,attentionNum,consultationNum"
-				+ ",descri,attachment,user_userId,shop_shopId,industry_industryId,classId) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			sql.append("insert into tecExpert(head,institution,major,title,sex,duty,education,searchKey,attentionNum,consultationNum"
+				+ ",descri,attachment,user_userId,shop_shopId,industry_industryId,classId) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-			preStatement.setString(1, tecExpert.getInstitution());
-			preStatement.setString(2, tecExpert.getMajor());
-			preStatement.setString(3,tecExpert.getTitle());
-			preStatement.setString(4, tecExpert.getSex());
-			preStatement.setString(5, tecExpert.getDuty());
-			preStatement.setString(6, tecExpert.getEducation());
-			preStatement.setString(7,tecExpert.getSearchKey());
-			preStatement.setInt(8, tecExpert.getAttentionNum());
-			preStatement.setInt(9, tecExpert.getConsultationNum());
-			preStatement.setString(10, tecExpert.getDescri());
-			preStatement.setString(11, tecExpert.getAttachment());
+			preStatement.setString(1, tecExpert.getHead());
+			preStatement.setString(2, tecExpert.getInstitution());
+			preStatement.setString(3, tecExpert.getMajor());
+			preStatement.setString(4,tecExpert.getTitle());
+			preStatement.setString(5, tecExpert.getSex());
+			preStatement.setString(6, tecExpert.getDuty());
+			preStatement.setString(7, tecExpert.getEducation());
+			preStatement.setString(8,tecExpert.getSearchKey());
+			preStatement.setInt(9, tecExpert.getAttentionNum());
+			preStatement.setInt(10, tecExpert.getConsultationNum());
+			preStatement.setString(11, tecExpert.getDescri());
+			preStatement.setString(12, tecExpert.getAttachment());
 			if(tecExpert.getUser()==null){
-				preStatement.setSQLXML(12, null);
+				preStatement.setSQLXML(13, null);
 			}else{
-				preStatement.setInt(12, tecExpert.getUser().getUserId());
+				preStatement.setInt(13, tecExpert.getUser().getUserId());
 			}
 			if(tecExpert.getShop()==null){
-				preStatement.setString(13,null);
-			}
-			else{
-				preStatement.setInt(13, tecExpert.getShop().getShopId());
-			}
-			if(tecExpert.getIndustry()==null){
 				preStatement.setString(14,null);
 			}
 			else{
-				preStatement.setInt(14, tecExpert.getIndustry().getIndustryId());
+				preStatement.setInt(14, tecExpert.getShop().getShopId());
 			}
-			if(tecExpert.getCity()==null){
+			if(tecExpert.getIndustry()==null){
 				preStatement.setString(15,null);
 			}
 			else{
-				preStatement.setInt(15, tecExpert.getCity().getClassId());
+				preStatement.setInt(15, tecExpert.getIndustry().getIndustryId());
+			}
+			if(tecExpert.getCity()==null){
+				preStatement.setString(16,null);
+			}
+			else{
+				preStatement.setInt(16, tecExpert.getCity().getClassId());
 			}
 			result=preStatement.execute();
 		}catch (SQLException e) {
@@ -83,6 +84,7 @@ public class TecExpertDao {
 		}
 		StringBuffer sql = new StringBuffer();
 		sql.append("update tecExpert set institution=?,");
+		sql.append(" head=?,");
 		sql.append(" major = ?,");
 		sql.append(" title = ?,");
 		sql.append(" sex = ?,");
@@ -102,39 +104,40 @@ public class TecExpertDao {
 		try {
 			conn = JDBCUtil.getMySqlConnection();
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-			preStatement.setString(1, tecExpert.getInstitution());
-			preStatement.setString(2, tecExpert.getMajor());
-			preStatement.setString(3,tecExpert.getTitle());
-			preStatement.setString(4, tecExpert.getSex());
-			preStatement.setString(5, tecExpert.getDuty());
-			preStatement.setString(6, tecExpert.getEducation());
-			preStatement.setString(7,tecExpert.getSearchKey());
-			preStatement.setInt(8, tecExpert.getAttentionNum());
-			preStatement.setInt(9, tecExpert.getConsultationNum());
-			preStatement.setString(10, tecExpert.getDescri());
-			preStatement.setString(11, tecExpert.getAttachment());
+			preStatement.setString(1, tecExpert.getHead());
+			preStatement.setString(2, tecExpert.getInstitution());
+			preStatement.setString(3, tecExpert.getMajor());
+			preStatement.setString(4,tecExpert.getTitle());
+			preStatement.setString(5, tecExpert.getSex());
+			preStatement.setString(6, tecExpert.getDuty());
+			preStatement.setString(7, tecExpert.getEducation());
+			preStatement.setString(8,tecExpert.getSearchKey());
+			preStatement.setInt(9, tecExpert.getAttentionNum());
+			preStatement.setInt(10, tecExpert.getConsultationNum());
+			preStatement.setString(11, tecExpert.getDescri());
+			preStatement.setString(12, tecExpert.getAttachment());
 			if(tecExpert.getUser()==null){
-				preStatement.setSQLXML(12, null);
+				preStatement.setSQLXML(13, null);
 			}else{
-				preStatement.setInt(12, tecExpert.getUser().getUserId());
+				preStatement.setInt(13, tecExpert.getUser().getUserId());
 			}
 			if(tecExpert.getShop()==null){
-				preStatement.setString(13,null);
-			}
-			else{
-				preStatement.setInt(13, tecExpert.getShop().getShopId());
-			}
-			if(tecExpert.getIndustry()==null){
 				preStatement.setString(14,null);
 			}
 			else{
-				preStatement.setInt(14, tecExpert.getIndustry().getIndustryId());
+				preStatement.setInt(14, tecExpert.getShop().getShopId());
 			}
-			if(tecExpert.getCity()==null){
+			if(tecExpert.getIndustry()==null){
 				preStatement.setString(15,null);
 			}
 			else{
-				preStatement.setInt(15, tecExpert.getCity().getClassId());
+				preStatement.setInt(15, tecExpert.getIndustry().getIndustryId());
+			}
+			if(tecExpert.getCity()==null){
+				preStatement.setString(16,null);
+			}
+			else{
+				preStatement.setInt(16, tecExpert.getCity().getClassId());
 			}
 			//Log4j打印日志
 			log.debug("\nSQL语句：\n");
@@ -187,6 +190,7 @@ public class TecExpertDao {
 			if(rs.next()){
 				tecExpert = new TecExpert ();
 				tecExpert .setTecExpertId(rs.getInt("tecExpertId"));
+				tecExpert.setHead(rs.getString("head"));
 				tecExpert .setInstitution(rs.getString("institution"));
 				tecExpert .setMajor(rs.getString("major"));
 				tecExpert .setTitle(rs.getString("title"));
@@ -244,6 +248,7 @@ public class TecExpertDao {
 			while(rs.next()){
 				TecExpert tecExpert = new TecExpert();
 				tecExpert .setTecExpertId(rs.getInt("tecExpertId"));
+				tecExpert.setHead(rs.getString("head"));
 				tecExpert .setInstitution(rs.getString("institution"));
 				tecExpert .setMajor(rs.getString("major"));
 				tecExpert .setTitle(rs.getString("title"));

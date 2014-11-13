@@ -63,7 +63,7 @@ public class CityDao {
 			ResultSet rs =  preStatement.executeQuery();
 			while(rs.next()){
 				City city = new City();
-				city.setClassId(rs.getInt("classId"));
+				city.setClassId(rs.getInt("class_Id"));
 				//City.setCityDesc(rs.getString("CityDesc"));
 				result.add(city);
 			}

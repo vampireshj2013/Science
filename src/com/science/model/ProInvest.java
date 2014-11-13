@@ -8,6 +8,7 @@ public class ProInvest {
 	private User user;
 	private Shop shop;
 	private City city;//投资区域
+	private String head;//标题
 	private float investMoney;//投资额度
 	private Invest invest;//投资方式
 	private String endTime;//截止时间
@@ -93,6 +94,12 @@ public class ProInvest {
 	}
 	public void setInvest(Invest invest) {
 		this.invest = invest;
+	}
+	public String getHead() {
+		return head;
+	}
+	public void setHead(String head) {
+		this.head = head;
 	}
 	
 	

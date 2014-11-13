@@ -6,8 +6,9 @@ package com.science.model;
  */
 public class SciAchievement {
 	private int sciAchievementId;
-	private String internationalTec;//国际技术
-	private String technologyLevel;//技术水平
+	private String head;//标题
+	private String interTec;//国际技术
+	private String tecLevel;//技术水平
 	private double transFee;//转让费
 	private double expectMoney;//预期投资额
 	private String searchKey;//关键字
@@ -27,17 +28,25 @@ public class SciAchievement {
 	public void setSciAchievementId(int sciAchievementId) {
 		this.sciAchievementId = sciAchievementId;
 	}
-	public String getInternationalTec() {
-		return internationalTec;
+	
+	public String getHead() {
+		return head;
 	}
-	public void setInternationalTec(String internationalTec) {
-		this.internationalTec = internationalTec;
+	public void setHead(String head) {
+		this.head = head;
 	}
-	public String getTechnologyLevel() {
-		return technologyLevel;
+	
+	public String getInterTec() {
+		return interTec;
 	}
-	public void setTechnologyLevel(String technologyLevel) {
-		this.technologyLevel = technologyLevel;
+	public void setInterTec(String interTec) {
+		this.interTec = interTec;
+	}
+	public String getTecLevel() {
+		return tecLevel;
+	}
+	public void setTecLevel(String tecLevel) {
+		this.tecLevel = tecLevel;
 	}
 	public double getTransFee() {
 		return transFee;

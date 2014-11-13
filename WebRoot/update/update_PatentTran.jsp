@@ -12,6 +12,7 @@
 <body>
 	<form id="form" method="post" action="${basePath }patentTranAction_update">
 		ID:<input name="patentTran.patentTransferId" type="hidden" value="<s:property value="patentTran.patentTransferId" />"><br/>
+		标题:<input name="patentTran.head" type="text" value="<s:property value="patentTran.head" />"><br/>
 		所属行业：<input name="patentTran.industry" type="text"	 value="<s:property value="patentTran.industry" />"><br/>
 		专利号：<input name="patentTran.patentNum" type="text" value="<s:property value="patentTran.patentNum" />">	<br/>
 		专利类型:

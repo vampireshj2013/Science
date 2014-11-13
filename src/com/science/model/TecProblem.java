@@ -8,6 +8,7 @@ public class TecProblem {
 	private User user;
 	private Shop shop;
 	private float expectMoney;//预投入资金
+	private String head;//标题
 	private String endTime;//截止时间
 	private String searchKey;//关键词
 	private int attentionNum;//关注数
@@ -79,6 +80,12 @@ public class TecProblem {
 	}
 	public void setAttachment(String attachment) {
 		this.attachment = attachment;
+	}
+	public String getHead() {
+		return head;
+	}
+	public void setHead(String head) {
+		this.head = head;
 	}
 	
 

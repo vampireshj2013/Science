@@ -4,14 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>项目融资</title>
+<link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 <body>
 
-<table>
+<%@ include file="../index.jsp"%>
+		<table id="list">
 		<thead>
 			<tr>
 				<td>ID</td>
+				<td>标题</td>
 				<td>融资领域</td>
 				<td>融资方式</td>
 				<td>融资额度</td>
@@ -23,12 +26,13 @@
 		<s:iterator value="#result" var="proFinance">
 			<tr>
 					<td><s:property value="#proFinance.proFinanceId" /></td>
+					<td><s:property value="#proFinance.head" /></td>
 					<td><s:property value="#proFinance.industry" /></td>
 					<td><s:property value="#proFinance.finance.financeDesc" /></td>
 					<td><s:property value="#proFinance.financeMoney" /></td>
 					<td><s:property value="#proFinance.endTime" /></td>
 					<td><s:property value="#proFinance.searchKey" /></td>
-					<td><s:property value="#proFinance.desci" /></td>
+					<td><s:property value="#proFinance.descri" /></td>
 			</tr>
 		</s:iterator>
 		</table>

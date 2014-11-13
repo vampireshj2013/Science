@@ -4,13 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>专利转让</title>
+<link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 <body>
-<table>
+<%@ include file="../index.jsp"%>
+		<table id="list">
 		<thead>
 			<tr>
 				<td>ID</td>
+				<td>标题</td>
 				<td>所属行业</td>
 				<td>专利号</td>
 				<td>专利类型</td>
@@ -24,13 +27,17 @@
 		</thead>
 		<s:iterator value="#result" var="patentTran">
 			<tr>
-					<td><s:property value="#patentTran.patentTransferId" /></td>
+					<td>
+					<a href="patentTranAction_listById?id=<s:property value="#patentTran.patentTransferId" />">
+					<s:property value="#patentTran.patentTransferId" />
+					</a></td>
+					<td><s:property value="#patentTran.head" /></td>
 					<td><s:property value="#patentTran.industry" /></td>
 					<td><s:property value="#patentTran.patentNum" /></td>
 					<td><s:property value="#patentTran.patent.patentDesc" /></td>
 					<td><s:property value="#patentTran.patentee" /></td>
 					<td><s:property value="#patentTran.lawStatus" /></td>
-					<td><s:property value="#patentTran.cooperation" /></td>
+					<td><s:property value="#patentTran.cooperation.cooperationDesc" /></td>
 					<td><s:property value="#patentTran.transferFee" /></td>
 					<td><s:property value="#patentTran.searchKey" /></td>
 					<td><s:property value="#patentTran.descri" /></td>

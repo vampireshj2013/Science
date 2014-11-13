@@ -26,44 +26,45 @@ public class ProInvestDao {
 		try{
 			conn= JDBCUtil.getMySqlConnection();
 			StringBuffer sql=new StringBuffer();
-			sql.append("insert into proInvest(investMoney,endTime,searchKey,attentionNum,consultationNum"
-				+ ",descri,attachment,userId,shopId,industry_industryId,city_classId,invest_investId) values (?,?,?,?,?,?,?,?,?,?,?,?)");
+			sql.append("insert into proInvest(head,investMoney,endTime,searchKey,attentionNum,consultationNum"
+				+ ",descri,attachment,userId,shopId,industry_industryId,city_classId,invest_investId) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-			preStatement.setFloat(1, proInvest.getInvestMoney());
-			preStatement.setString(2, proInvest.getEndTime());
-			preStatement.setString(3,proInvest.getSearchKey());
-			preStatement.setInt(4, proInvest.getAttentionNum());
-			preStatement.setInt(5, proInvest.getConsultationNum());
-			preStatement.setString(6, proInvest.getDescri());
-			preStatement.setString(7, proInvest.getAttachment());
+			preStatement.setString(1, proInvest.getHead());
+			preStatement.setFloat(2, proInvest.getInvestMoney());
+			preStatement.setString(3, proInvest.getEndTime());
+			preStatement.setString(4,proInvest.getSearchKey());
+			preStatement.setInt(5, proInvest.getAttentionNum());
+			preStatement.setInt(6, proInvest.getConsultationNum());
+			preStatement.setString(7, proInvest.getDescri());
+			preStatement.setString(8, proInvest.getAttachment());
 			if(proInvest.getUser()==null){
-				preStatement.setSQLXML(8, null);
+				preStatement.setSQLXML(9, null);
 			}else{
-				preStatement.setInt(8, proInvest.getUser().getUserId());
+				preStatement.setInt(9, proInvest.getUser().getUserId());
 			}
 			if(proInvest.getShop()==null){
-				preStatement.setString(9,null);
-			}
-			else{
-				preStatement.setInt(9, proInvest.getShop().getShopId());
-			}
-			if(proInvest.getIndustry()==null){
 				preStatement.setString(10,null);
 			}
 			else{
-				preStatement.setInt(10, proInvest.getIndustry().getIndustryId());
+				preStatement.setInt(10, proInvest.getShop().getShopId());
 			}
-			if(proInvest.getCity()==null){
+			if(proInvest.getIndustry()==null){
 				preStatement.setString(11,null);
 			}
 			else{
-				preStatement.setInt(11, proInvest.getCity().getClassId());
+				preStatement.setInt(11, proInvest.getIndustry().getIndustryId());
 			}
-			if(proInvest.getInvest()==null){
+			if(proInvest.getCity()==null){
 				preStatement.setString(12,null);
 			}
 			else{
-				preStatement.setInt(12, proInvest.getInvest().getInvestId());
+				preStatement.setInt(12, proInvest.getCity().getClassId());
+			}
+			if(proInvest.getInvest()==null){
+				preStatement.setString(13,null);
+			}
+			else{
+				preStatement.setInt(13, proInvest.getInvest().getInvestId());
 			}
 			result=preStatement.execute();
 		}catch (SQLException e) {
@@ -84,6 +85,7 @@ public class ProInvestDao {
 		}
 		StringBuffer sql = new StringBuffer();
 		sql.append("update proInvest set investMoney=?,");
+		sql.append(" head=?,");
 		sql.append(" endTime =?,");
 		sql.append(" searchKey =?,");
 		sql.append(" attentionNum =?,");
@@ -99,41 +101,42 @@ public class ProInvestDao {
 		try {
 			conn = JDBCUtil.getMySqlConnection();
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-			preStatement.setFloat(1, proInvest.getInvestMoney());
-			preStatement.setString(2, proInvest.getEndTime());
-			preStatement.setString(3,proInvest.getSearchKey());
-			preStatement.setInt(4, proInvest.getAttentionNum());
-			preStatement.setInt(5, proInvest.getConsultationNum());
-			preStatement.setString(6, proInvest.getDescri());
-			preStatement.setString(7, proInvest.getAttachment());
+			preStatement.setString(1, proInvest.getHead());
+			preStatement.setFloat(2, proInvest.getInvestMoney());
+			preStatement.setString(3, proInvest.getEndTime());
+			preStatement.setString(4,proInvest.getSearchKey());
+			preStatement.setInt(5, proInvest.getAttentionNum());
+			preStatement.setInt(6, proInvest.getConsultationNum());
+			preStatement.setString(7, proInvest.getDescri());
+			preStatement.setString(8, proInvest.getAttachment());
 			if(proInvest.getUser()==null){
-				preStatement.setSQLXML(8, null);
+				preStatement.setSQLXML(9, null);
 			}else{
-				preStatement.setInt(8, proInvest.getUser().getUserId());
+				preStatement.setInt(9, proInvest.getUser().getUserId());
 			}
 			if(proInvest.getShop()==null){
-				preStatement.setString(9,null);
-			}
-			else{
-				preStatement.setInt(9, proInvest.getShop().getShopId());
-			}
-			if(proInvest.getIndustry()==null){
 				preStatement.setString(10,null);
 			}
 			else{
-				preStatement.setInt(10, proInvest.getIndustry().getIndustryId());
+				preStatement.setInt(10, proInvest.getShop().getShopId());
 			}
-			if(proInvest.getCity()==null){
+			if(proInvest.getIndustry()==null){
 				preStatement.setString(11,null);
 			}
 			else{
-				preStatement.setInt(11, proInvest.getCity().getClassId());
+				preStatement.setInt(11, proInvest.getIndustry().getIndustryId());
 			}
-			if(proInvest.getInvest()==null){
+			if(proInvest.getCity()==null){
 				preStatement.setString(12,null);
 			}
 			else{
-				preStatement.setInt(12, proInvest.getInvest().getInvestId());
+				preStatement.setInt(12, proInvest.getCity().getClassId());
+			}
+			if(proInvest.getInvest()==null){
+				preStatement.setString(13,null);
+			}
+			else{
+				preStatement.setInt(13, proInvest.getInvest().getInvestId());
 			}
 			
 			//Log4j打印日志
@@ -187,6 +190,7 @@ public class ProInvestDao {
 			if(rs.next()){
 				proInvest = new ProInvest ();
 				proInvest .setProInvestId(rs.getInt("proInvestId"));
+				proInvest.setHead(rs.getString("head"));
 				proInvest .setInvestMoney(rs.getFloat("investMoney"));
 				proInvest .setEndTime(rs.getString("endTime"));
 				proInvest .setAttachment(rs.getString("attachment"));
@@ -242,6 +246,7 @@ public class ProInvestDao {
 			while(rs.next()){
 				ProInvest proInvest = new ProInvest();
 				proInvest .setProInvestId(rs.getInt("proInvestId"));
+				proInvest.setHead(rs.getString("head"));
 				proInvest .setInvestMoney(rs.getFloat("investMoney"));
 				proInvest .setEndTime(rs.getString("endTime"));
 				proInvest .setAttachment(rs.getString("attachment"));

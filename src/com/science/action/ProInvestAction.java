@@ -68,7 +68,7 @@ public class ProInvestAction extends ActionSupport{
 	}
 	public String list(){
 		//设置每页显示的行数
-		pageUtil.setPageSize(3);
+		pageUtil.setPageSize(10);
 		List<ProInvest> result = dao.searchProInvestByCondition(proInvest, pageUtil.getIndex(), pageUtil.getPageSize());
 		//设置总共有多少条记录
 		pageUtil.setRecordCount(dao.countProInvestByCondition(proInvest));

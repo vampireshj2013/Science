@@ -11,6 +11,7 @@
 <body>
 	<form id="form" method="post" action="${basePath }proFinanceAction_update">
 		ID:<input name="proFinance.proFinanceId" type="hidden" value="<s:property value="proFinance.proFinanceId" />"><br/>
+		标题:<input name="proFinance.head" type="text" value="<s:property value="proFinance.head" />"><br/>
 		融资领域:<input name="proFinance.industry" type="text" value="<s:property value="proFinance.industry" />"><br/>
 		融资金额:<input name="proFinance.financeMoney" type="text" value="<s:property value="proFinance.financeMoney" />"><br/>
 		融资方式:

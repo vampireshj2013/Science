@@ -7,8 +7,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.science.dao.CooperationDao;
 import com.science.dao.MaturityDao;
 import com.science.dao.SciAchievementDao;
+import com.science.model.BuyType;
 import com.science.model.Cooperation;
 import com.science.model.Maturity;
+import com.science.model.Patent;
 import com.science.model.SciAchievement;
 import com.science.util.PageUtil;
 
@@ -58,11 +60,19 @@ public class SciAchievementAction extends ActionSupport {
 	}
 	public String list(){
 		//设置每页显示的行数
-		pageUtil.setPageSize(3);
+		pageUtil.setPageSize(10);
 		List<SciAchievement> result = dao.searchSciAchievementByCondition(sciAchievement, pageUtil.getIndex(), pageUtil.getPageSize());
 		//设置总共有多少条记录
 		pageUtil.setRecordCount(dao.countSciAchievementByCondition(sciAchievement));
 		ActionContext.getContext().put("result", result);
 		return "list";
+	}
+	public String listById(){
+		sciAchievement = dao.inquerySciAchievementById(id);
+		List<Maturity> maturitys=maturityDao.searchAllMaturity();
+		ActionContext.getContext().put("maturitys", maturitys);
+		List<Cooperation> cooperations=cooperationDao.searchAllCooperation();
+		ActionContext.getContext().put("cooperations", cooperations);
+		return "listId";
 	}
 }

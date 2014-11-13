@@ -67,13 +67,21 @@ public class PatentTranAction extends ActionSupport {
 	}
 	public String list(){
 		//设置每页显示的行数
-		pageUtil.setPageSize(3);
+		pageUtil.setPageSize(10);
 		List<PatentTran> result = dao.searchPatentTranByCondition(patentTran, pageUtil.getIndex(), pageUtil.getPageSize());
 		//设置总共有多少条记录
 		pageUtil.setRecordCount(dao.countPatentTranByCondition(patentTran));
 		ActionContext.getContext().put("result", result);
 		return "list";
 	}
-	
+	public String listById(){
+		patentTran=dao.inqueryPatentTranById(id);
+		List<Cooperation> cooperations=cooperationDao.searchAllCooperation();
+		ActionContext.getContext().put("cooperations", cooperations);
+		List<Patent> patents=patentDao.searchAllPatent();
+		ActionContext.getContext().put("patents", patents);
+		
+		return "listId";
+	}
 
 }

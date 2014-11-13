@@ -65,7 +65,7 @@ public class TecExpertAction extends ActionSupport{
 	}
 	public String list(){
 		//设置每页显示的行数
-		pageUtil.setPageSize(3);
+		pageUtil.setPageSize(10);
 		List<TecExpert> result = dao.searchTecExpertByCondition(tecExpert, pageUtil.getIndex(), pageUtil.getPageSize());
 		//设置总共有多少条记录
 		pageUtil.setRecordCount(dao.countTecExpertByCondition(tecExpert));

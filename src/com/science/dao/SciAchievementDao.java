@@ -32,47 +32,47 @@ public class SciAchievementDao {
 			conn = JDBCUtil.getMySqlConnection();
 	
 		StringBuffer sql = new StringBuffer();
-		sql.append("insert into sciAchievement (internationalTec,technologyLevel,transferFee,expectMoney,searchKey,attentionNum,consultationNum"
-				+ ",descri,attachment,userId,shopId,industryId,cooperationId,maturityId) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		sql.append("insert into sciAchievement (head,interTec,tecLevel,transferFee,expectMoney,searchKey,attentionNum,consultationNum"
+				+ ",descri,attachment,userId,shopId,industryId,cooperationId,maturityId) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-		
-		preStatement.setString(1, sciAchievement.getInternationalTec());
-		preStatement.setString(2, sciAchievement.getTechnologyLevel());
-		preStatement.setDouble(3, sciAchievement.getTransFee());
-		preStatement.setDouble(4, sciAchievement.getExpectMoney());
-		preStatement.setString(5, sciAchievement.getSearchKey());
-		preStatement.setInt(6, sciAchievement.getAttentionNum());
-		preStatement.setInt(7, sciAchievement.getConsultationNum());
-		preStatement.setString(8, sciAchievement.getDescri());
-		preStatement.setString(9, sciAchievement.getAttachment());
+		preStatement.setString(1, sciAchievement.getHead());
+		preStatement.setString(2, sciAchievement.getInterTec());
+		preStatement.setString(3, sciAchievement.getTecLevel());
+		preStatement.setDouble(4, sciAchievement.getTransFee());
+		preStatement.setDouble(5, sciAchievement.getExpectMoney());
+		preStatement.setString(6, sciAchievement.getSearchKey());
+		preStatement.setInt(7, sciAchievement.getAttentionNum());
+		preStatement.setInt(8, sciAchievement.getConsultationNum());
+		preStatement.setString(9, sciAchievement.getDescri());
+		preStatement.setString(10, sciAchievement.getAttachment());
 		if(sciAchievement.getUser()==null){
-			preStatement.setString(10,null);
+			preStatement.setString(11,null);
 		} 
 		else{
-			preStatement.setInt(10,sciAchievement.getUser().getUserId());
+			preStatement.setInt(11,sciAchievement.getUser().getUserId());
 		}
 		if(sciAchievement.getShop()==null){
-			preStatement.setString(11,null);
-		}
-		else{
-			preStatement.setInt(11, sciAchievement.getShop().getShopId());
-		}
-		if(sciAchievement.getIndustry()==null){
 			preStatement.setString(12,null);
 		}
 		else{
-			preStatement.setInt(12, sciAchievement.getIndustry().getIndustryId());
+			preStatement.setInt(12, sciAchievement.getShop().getShopId());
 		}
-		if(sciAchievement.getCooperation()==null){
+		if(sciAchievement.getIndustry()==null){
 			preStatement.setString(13,null);
 		}
 		else{
-			preStatement.setInt(13, sciAchievement.getCooperation().getCooperationId());
+			preStatement.setInt(13, sciAchievement.getIndustry().getIndustryId());
+		}
+		if(sciAchievement.getCooperation()==null){
+			preStatement.setString(14,null);
+		}
+		else{
+			preStatement.setInt(14, sciAchievement.getCooperation().getCooperationId());
 		}
 		if(sciAchievement.getMaturity()==null){
-			preStatement.setString(14,null);
+			preStatement.setString(15,null);
 		}else{
-			preStatement.setInt(14, sciAchievement.getMaturity().getMaturityId());
+			preStatement.setInt(15, sciAchievement.getMaturity().getMaturityId());
 		}
 		result = preStatement.execute();
 		} catch (SQLException e) {
@@ -94,6 +94,7 @@ public class SciAchievementDao {
 		}
 		StringBuffer sql = new StringBuffer();
 		sql.append("update sciAchievement set internationalTec=?,");
+		sql.append(" head=?,");
 		sql.append(" technologyLevel = ?,");
 		sql.append(" transferFee = ?,");
 		sql.append(" expectMoney = ?,");
@@ -112,26 +113,21 @@ public class SciAchievementDao {
 		try {
 			conn = JDBCUtil.getMySqlConnection();
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-			preStatement.setString(1, sciAchievement.getInternationalTec());
-			preStatement.setString(2, sciAchievement.getTechnologyLevel());
-			preStatement.setDouble(3, sciAchievement.getTransFee());
-			preStatement.setDouble(4, sciAchievement.getExpectMoney());
-			preStatement.setString(5, sciAchievement.getSearchKey());
-			preStatement.setInt(6, sciAchievement.getAttentionNum());
-			preStatement.setInt(7, sciAchievement.getConsultationNum());
-			preStatement.setString(8, sciAchievement.getDescri());
-			preStatement.setString(9, sciAchievement.getAttachment());
+			preStatement.setString(1, sciAchievement.getHead());
+			preStatement.setString(2, sciAchievement.getInterTec());
+			preStatement.setString(3, sciAchievement.getTecLevel());
+			preStatement.setDouble(4, sciAchievement.getTransFee());
+			preStatement.setDouble(5, sciAchievement.getExpectMoney());
+			preStatement.setString(6, sciAchievement.getSearchKey());
+			preStatement.setInt(7, sciAchievement.getAttentionNum());
+			preStatement.setInt(8, sciAchievement.getConsultationNum());
+			preStatement.setString(9, sciAchievement.getDescri());
+			preStatement.setString(10, sciAchievement.getAttachment());
 			if(sciAchievement.getUser()==null){
-				preStatement.setString(10,null);
+				preStatement.setString(11,null);
 			} 
 			else{
-				preStatement.setInt(10,sciAchievement.getUser().getUserId());
-			}
-			if(sciAchievement.getCooperation()==null){
-				preStatement.setString(11,null);
-			}
-			else{
-				preStatement.setInt(11, sciAchievement.getCooperation().getCooperationId());
+				preStatement.setInt(11,sciAchievement.getUser().getUserId());
 			}
 			if(sciAchievement.getShop()==null){
 				preStatement.setString(12,null);
@@ -139,17 +135,22 @@ public class SciAchievementDao {
 			else{
 				preStatement.setInt(12, sciAchievement.getShop().getShopId());
 			}
-			if(sciAchievement.getMaturity()==null){
+			if(sciAchievement.getIndustry()==null){
 				preStatement.setString(13,null);
 			}
 			else{
-				preStatement.setInt(13, sciAchievement.getMaturity().getMaturityId());
+				preStatement.setInt(13, sciAchievement.getIndustry().getIndustryId());
 			}
-			if(sciAchievement.getIndustry()==null){
+			if(sciAchievement.getCooperation()==null){
 				preStatement.setString(14,null);
 			}
 			else{
-				preStatement.setInt(14, sciAchievement.getIndustry().getIndustryId());
+				preStatement.setInt(14, sciAchievement.getCooperation().getCooperationId());
+			}
+			if(sciAchievement.getMaturity()==null){
+				preStatement.setString(15,null);
+			}else{
+				preStatement.setInt(15, sciAchievement.getMaturity().getMaturityId());
 			}
 			//Log4j打印日志
 			log.debug("\nSQL语句：\n");
@@ -205,14 +206,15 @@ public class SciAchievementDao {
 			if(rs.next()){
 				sciAchievement = new SciAchievement();
 				sciAchievement.setSciAchievementId(rs.getInt("sciAchievementId"));
+				sciAchievement.setHead(rs.getString("head"));
 				sciAchievement.setAttachment(rs.getString("attachment"));
 				sciAchievement.setAttentionNum(rs.getInt("attentionNum"));
 				sciAchievement.setConsultationNum(rs.getInt("consultationNum"));
 				sciAchievement.setDescri(rs.getString("descri"));
 				sciAchievement.setExpectMoney(rs.getDouble("expectMoney"));
-				sciAchievement.setInternationalTec(rs.getString("internationalTec"));
+				sciAchievement.setInterTec(rs.getString("interTec"));
 				sciAchievement.setSearchKey(rs.getString("searchKey"));
-				sciAchievement.setTechnologyLevel(rs.getString("technologyLevel"));
+				sciAchievement.setTecLevel(rs.getString("tecLevel"));
 				sciAchievement.setTransFee(rs.getDouble("transferFee"));
 				/**
 				 * 省略了级联查询的方法，待后面所有的查询方法都写好之后再填上
@@ -259,20 +261,23 @@ public class SciAchievementDao {
 			while(rs.next()){
 				SciAchievement sciAchievement = new SciAchievement();
 				sciAchievement.setSciAchievementId(rs.getInt("sciAchievementId"));
+				sciAchievement.setHead(rs.getString("head"));
 				sciAchievement.setAttachment(rs.getString("attachment"));
 				sciAchievement.setAttentionNum(rs.getInt("attentionNum"));
 				sciAchievement.setConsultationNum(rs.getInt("consultationNum"));
 				sciAchievement.setDescri(rs.getString("descri"));
 				sciAchievement.setExpectMoney(rs.getDouble("expectMoney"));
-				sciAchievement.setInternationalTec(rs.getString("internationalTec"));
+				sciAchievement.setInterTec(rs.getString("interTec"));
 				sciAchievement.setSearchKey(rs.getString("searchKey"));
-				sciAchievement.setTechnologyLevel(rs.getString("technologyLevel"));
+				sciAchievement.setTecLevel(rs.getString("tecLevel"));
 				sciAchievement.setTransFee(rs.getDouble("transferFee"));
 				/**
 				 * 省略了级联查询的方法，待后面所有的查询方法都写好之后再填上
 				 */
 				MaturityDao maturityDao = new MaturityDao();
 				sciAchievement.setMaturity(maturityDao.inqueryMaturityById(rs.getInt("maturityId")));
+				CooperationDao cooperationDao=new CooperationDao();
+				sciAchievement.setCooperation(cooperationDao.inqueryCooperationById(rs.getInt("cooperationId")));
 				result.add(sciAchievement);
 			}
 			

@@ -45,6 +45,7 @@ public class PatentBuyAction extends ActionSupport{
 		
 		return SUCCESS;
 	}
+	//修改
 	public String updateInit(){
 		patentBuy = dao.inqueryPatentBuyById(id);
 		/*List<Maturity> maturitys=maturityDao.searchAllMaturity();
@@ -58,18 +59,29 @@ public class PatentBuyAction extends ActionSupport{
 		return "updateInit";
 		//return "success";
 	}
+	//更新
 	public String update(){
 		dao.updatePatentBuy(patentBuy);
 		return NONE;
 	}
+	//列表
 	public String list(){
 		//设置每页显示的行数
-		pageUtil.setPageSize(3);
+		pageUtil.setPageSize(10);
 		List<PatentBuy> result = dao.searchPatentBuyByCondition(patentBuy, pageUtil.getIndex(), pageUtil.getPageSize());
 		//设置总共有多少条记录
 		pageUtil.setRecordCount(dao.countPatentBuyByCondition(patentBuy));
 		ActionContext.getContext().put("result", result);
 		return "list";
 	}
-
+	
+	public String listById(){
+		patentBuy=dao.inqueryPatentBuyById(id);
+		List<BuyType> buys=buyTypeDao.searchAllBuyType();
+		ActionContext.getContext().put("buys", buys);		
+		List<Patent> patents=patentDao.searchAllPatent();
+		ActionContext.getContext().put("patents", patents);
+		
+		return "listId";
+	}
 }

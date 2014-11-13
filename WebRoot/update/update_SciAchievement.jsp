@@ -11,6 +11,7 @@
 <body>
 	<form id="form" method="post" action="${basePath }sciAction_update">
 		ID:<input name="sciAchievement.sciAchievementId" type="hidden" value="<s:property value="sciAchievement.sciAchievementId" />"><br/>
+		标题:<input name="sciAchievement.head" type="text" value="<s:property value="sciAchievement.head" />"><br/>
 		所属行业:<input name="sciAchievement.industry" type="text" value="<s:property value="sciAchievement.industry" />"><br/>
 		合作方式:
 		<s:select headerKey="0" headerValue="===请选择===" list="#cooperations"
@@ -21,9 +22,9 @@
 		              			name="sciAchievement.maturity.maturityId" listKey="maturityId" listValue="maturityDesc">
 		              
 		</s:select><br/>
-		技术水平:<input name="sciAchievement.technologyLevel" type="text" value="<s:property value="sciAchievement.technologyLevel" />"><br/>
-		是否国际技术:<input name="sciAchievement.internationalTec" type="radio" value="<s:property value="sciAchievement.internationalTec" />">是
-                  <input name="sciAchievement.internationalTec" type="radio" value="<s:property value="sciAchievement.internationalTec"/>">否<br/>      
+		技术水平:<input name="sciAchievement.tecLevel" type="text" value="<s:property value="sciAchievement.tecLevel" />"><br/>
+		是否国际技术:<input name="sciAchievement.interTec" type="radio" value="<s:property value="sciAchievement.interTec" />">是
+                  <input name="sciAchievement.interTec" type="radio" value="<s:property value="sciAchievement.interTec"/>">否<br/>      
 		预期投资额:<input name="sciAchievement.expectMoney" type="text" value="<s:property value="sciAchievement.expectMoney" />"><br/>
 		关键词:<input name="sciAchievement.searchKey" type="text" value="<s:property value="sciAchievement.searchKey" />"><br/>
 		成果介绍:<input name="sciAchievement.descri" type="text" value="<s:property value="sciAchievement.descri" />"><br/>

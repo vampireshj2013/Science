@@ -11,6 +11,7 @@
 <body>
 	<form id="form" method="post" action="${basePath }tecExpertAction_update">
 		ID:<input name="tecExpert.tecExpertId" type="hidden" value="<s:property value="tecExpert.tecExpertId" />"><br/>
+		标题:<input name="tecExpert.head" type="text" value="<s:property value="tecExpert.head" />"><br/>
 		研究领域:<input name="tecExpert.industry" type="text" value="<s:property value="tecExpert.industry" />"><br/>
 		所属机构:<input name="tecExpert.institution" type="text" value="<s:property value="tecExpert.institution" />"><br/>
 		技术专长:<input name="tecExpert.major" type="text" value="<s:property value="tecExpert.major" />"><br/>

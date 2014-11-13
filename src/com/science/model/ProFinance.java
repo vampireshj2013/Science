@@ -8,6 +8,7 @@ public class ProFinance {
 	private User user;
 	private Shop shop;
 	private float financeMoney;//融资额度
+	private String head;//标题
 	private Finance finance;//融资方式
 	private String endTime;//截止时间
 	private String searchKey;//关键词
@@ -88,6 +89,12 @@ public class ProFinance {
 	}
 	public void setAttachment(String attachment) {
 		this.attachment = attachment;
+	}
+	public String getHead() {
+		return head;
+	}
+	public void setHead(String head) {
+		this.head = head;
 	}
 	
 	

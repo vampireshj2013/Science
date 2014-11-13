@@ -7,6 +7,7 @@ public class PatentBuy {
 	private User user;
 	private Shop shop;
 	private Patent patent;
+	private String head;//标题
 	private double expectMoney;//预期投资额
 	private String searchKey;//关键词
 	private int attentionNum;//关注数
@@ -84,6 +85,12 @@ public class PatentBuy {
 	}
 	public void setAttachment(String attachment) {
 		this.attachment = attachment;
+	}
+	public String getHead() {
+		return head;
+	}
+	public void setHead(String head) {
+		this.head = head;
 	}
 	
 

@@ -7,6 +7,7 @@ public class PatentTran {
 	private User user;
 	private Shop shop;
 	private Patent patent;
+	private String head;//标题
 	private int patentNum;//专利号
 	private String patentee;//专利所有人
 	private String lawStatus;//法律状态
@@ -109,6 +110,12 @@ public class PatentTran {
 	}
 	public void setAttachment(String attachment) {
 		this.attachment = attachment;
+	}
+	public String getHead() {
+		return head;
+	}
+	public void setHead(String head) {
+		this.head = head;
 	}
 	
 	

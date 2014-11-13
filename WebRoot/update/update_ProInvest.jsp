@@ -11,6 +11,7 @@
 <body>
 	<form id="form" method="post" action="${basePath }proInvestAction_update">
 		ID:<input name="proInvest.proInvestId" type="hidden" value="<s:property value="proInvest.proInvestId" />"><br/>
+		标题:<input name="proInvest.head" type="text" value="<s:property value="proInvest.head" />"><br/>
 		投资领域:<input name="proInvest.industry" type="text" value="<s:property value="proInvest.industry" />"><br/>
 		投资区域：<input name="proInvest.city" type="text" value="<s:property value="proInvest.city"/>"><br/>
 		投资金额:<input name="proInvest.investMoney" type="text" value="<s:property value="proInvest.investMoney" />"><br/>

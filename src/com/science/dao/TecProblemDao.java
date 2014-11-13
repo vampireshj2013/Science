@@ -27,33 +27,35 @@ public class TecProblemDao {
 		try{
 			conn= JDBCUtil.getMySqlConnection();
 			StringBuffer sql=new StringBuffer();
-			sql.append("insert into tecProblem(expectMoney,endTime,searchKey,attentionNum,consultationNum"
-				+ ",descri,attachment,user_userId,shop_shopId,industry_industryId) values (?,?,?,?,?,?,?,?,?,?)");
+			sql.append("insert into tecProblem(head,expectMoney,endTime,searchKey,attentionNum,consultationNum"
+				+ ",descri,attachment,user_userId,shop_shopId,industry_industryId) values (?,?,?,?,?,?,?,?,?,?,?)");
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-			preStatement.setFloat(1, tecProblem.getExpectMoney());
-			preStatement.setString(2, tecProblem.getEndTime());
-			preStatement.setString(3,tecProblem.getSearchKey());
-			preStatement.setInt(4, tecProblem.getAttentionNum());
-			preStatement.setInt(5, tecProblem.getConsultationNum());
-			preStatement.setString(6, tecProblem.getDescri());
-			preStatement.setString(7, tecProblem.getAttachment());
+			preStatement.setString(1, tecProblem.getHead());
+			preStatement.setFloat(2, tecProblem.getExpectMoney());
+			preStatement.setString(3, tecProblem.getEndTime());
+			preStatement.setString(4,tecProblem.getSearchKey());
+			preStatement.setInt(5, tecProblem.getAttentionNum());
+			preStatement.setInt(6, tecProblem.getConsultationNum());
+			preStatement.setString(7, tecProblem.getDescri());
+			preStatement.setString(8, tecProblem.getAttachment());
 			if(tecProblem.getUser()==null){
-				preStatement.setSQLXML(8, null);
+				preStatement.setSQLXML(9, null);
 			}else{
-				preStatement.setInt(8, tecProblem.getUser().getUserId());
+				preStatement.setInt(9, tecProblem.getUser().getUserId());
 			}
 			if(tecProblem.getShop()==null){
-				preStatement.setString(9,null);
-			}
-			else{
-				preStatement.setInt(9, tecProblem.getShop().getShopId());
-			}
-			if(tecProblem.getIndustry()==null){
 				preStatement.setString(10,null);
 			}
 			else{
-				preStatement.setInt(10, tecProblem.getIndustry().getIndustryId());
+				preStatement.setInt(10, tecProblem.getShop().getShopId());
 			}
+			if(tecProblem.getIndustry()==null){
+				preStatement.setString(11,null);
+			}
+			else{
+				preStatement.setInt(11, tecProblem.getIndustry().getIndustryId());
+			}
+		
 			result = preStatement.execute();
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -73,6 +75,7 @@ public class TecProblemDao {
 		}
 		StringBuffer sql = new StringBuffer();
 		sql.append("update tecProblem set expectMoney=?,");
+		sql.append(" head=?,");
 		sql.append(" endTime =?,");
 		sql.append(" searchKey =?,");
 		sql.append(" attentionNum =?,");
@@ -87,30 +90,32 @@ public class TecProblemDao {
 		try {
 			conn = JDBCUtil.getMySqlConnection();
 			PreparedStatement preStatement = conn.prepareStatement(sql.toString());
-			preStatement.setFloat(1, tecProblem.getExpectMoney());
-			preStatement.setString(2, tecProblem.getEndTime());
-			preStatement.setString(3,tecProblem.getSearchKey());
-			preStatement.setInt(4, tecProblem.getAttentionNum());
-			preStatement.setInt(5, tecProblem.getConsultationNum());
-			preStatement.setString(6, tecProblem.getDescri());
-			preStatement.setString(7, tecProblem.getAttachment());
+			preStatement.setString(1, tecProblem.getHead());
+			preStatement.setFloat(2, tecProblem.getExpectMoney());
+			preStatement.setString(3, tecProblem.getEndTime());
+			preStatement.setString(4,tecProblem.getSearchKey());
+			preStatement.setInt(5, tecProblem.getAttentionNum());
+			preStatement.setInt(6, tecProblem.getConsultationNum());
+			preStatement.setString(7, tecProblem.getDescri());
+			preStatement.setString(8, tecProblem.getAttachment());
 			if(tecProblem.getUser()==null){
-				preStatement.setSQLXML(8, null);
+				preStatement.setSQLXML(9, null);
 			}else{
-				preStatement.setInt(8, tecProblem.getUser().getUserId());
+				preStatement.setInt(9, tecProblem.getUser().getUserId());
 			}
 			if(tecProblem.getShop()==null){
-				preStatement.setString(9,null);
-			}
-			else{
-				preStatement.setInt(9, tecProblem.getShop().getShopId());
-			}
-			if(tecProblem.getIndustry()==null){
 				preStatement.setString(10,null);
 			}
 			else{
-				preStatement.setInt(10, tecProblem.getIndustry().getIndustryId());
+				preStatement.setInt(10, tecProblem.getShop().getShopId());
 			}
+			if(tecProblem.getIndustry()==null){
+				preStatement.setString(11,null);
+			}
+			else{
+				preStatement.setInt(11, tecProblem.getIndustry().getIndustryId());
+			}
+		
 			//Log4j打印日志
 			log.debug("\nSQL语句：\n");
 			System.out.println(sql.toString());
@@ -162,6 +167,7 @@ public class TecProblemDao {
 			if(rs.next()){
 				tecProblem = new TecProblem ();
 				tecProblem .setTecProblemId(rs.getInt("tecProblemId"));
+				tecProblem.setHead(rs.getString("head"));
 				tecProblem .setExpectMoney(rs.getFloat("expectMoney"));
 				tecProblem .setEndTime(rs.getString("endTime"));
 				tecProblem .setAttachment(rs.getString("attachment"));
@@ -215,6 +221,7 @@ public class TecProblemDao {
 			while(rs.next()){
 				TecProblem tecProblem = new TecProblem();
 				tecProblem .setTecProblemId(rs.getInt("tecProblemId"));
+				tecProblem.setHead(rs.getString("head"));
 				tecProblem .setExpectMoney(rs.getFloat("expectMoney"));
 				tecProblem .setEndTime(rs.getString("endTime"));
 				tecProblem .setAttachment(rs.getString("attachment"));
