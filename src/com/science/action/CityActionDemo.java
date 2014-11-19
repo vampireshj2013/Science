@@ -1,7 +1,13 @@
 package com.science.action;
 
+import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
 import com.science.dao.CityDao;
 import com.science.model.City;
@@ -28,8 +34,26 @@ public class CityActionDemo extends ActionSupport {
 			}
 		}
 		return SUCCESS;
+	}
+	public String cityListInit() {
+		return "cityListInit";
+	}
+	public void cityList() throws Exception {
+		Gson gson = new Gson();
+		//jsp传入-1代表查询所有省
+		if(id==-1){
+			citys = dao.searchChildCityById(1);
+		}else{
+			citys = dao.searchChildCityById(id);
+			
+		}
+		HttpServletResponse response =ServletActionContext.getResponse();
+		//解决乱码
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		//将citys转换成json数据打印到jsp
+		out.print(gson.toJson(citys));
 	} 
-	
 	public int getId() {
 		return id;
 	}

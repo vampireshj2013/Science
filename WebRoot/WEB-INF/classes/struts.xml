@@ -65,7 +65,8 @@
             <result name="success">/structs.jsp</result>
         </action>
          <action name="city_*" class="com.science.action.CityActionDemo" method="{1}">
-           <result name="success">/list/cityDemo.jsp</result> 
+           <result name="success">/list/cityDemo.jsp</result>
+           <result name="cityListInit">/list/cityDemo2.jsp</result>
         </action>
     </package>
 
