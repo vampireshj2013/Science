@@ -48,8 +48,10 @@ public class CityActionDemo extends ActionSupport {
 			
 		}
 		HttpServletResponse response =ServletActionContext.getResponse();
+		//解决乱码
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
+		//将citys转换成json数据打印到jsp
 		out.print(gson.toJson(citys));
 	} 
 	public int getId() {
