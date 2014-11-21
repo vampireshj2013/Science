@@ -1,9 +1,10 @@
 <%@ page language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<head>
+<head lang="zh-cn">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -20,7 +21,7 @@ span {
 </style>
 </head>
 <body>
-<div align="center"><span>每页显示<s:property
+<div class="pagination" align="center"><span>每页显示<s:property
 	value="pageUtil.pageSize" />条</span> <span>共<s:property
 	value="pageUtil.recordCount" />条&nbsp;</span> <span>当前页<s:property
 	value="pageUtil.currPage" />/共<s:property value="pageUtil.pageCount" />页</span> <span>

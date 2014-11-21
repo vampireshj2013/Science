@@ -6,11 +6,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>项目投资</title>
 <link rel="stylesheet" type="text/css" href="./css/styles.css">
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<style type="text/css">
+    body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;}
+    </style>
 </head>
 <body>
 
 <%@ include file="../index.jsp"%>
-		<table id="list">
+	<div class="container" style="width:1000px;position:absolute;top:130px;left:175px">
+		<table class="table table-hover" >
 		<thead>
 			<tr>
 				<td>ID</td>
@@ -42,8 +49,11 @@
 			</tr>
 		</s:iterator>
 		</table>
+		</div>
+		<div class="container" style="width:1000px;position:absolute;top:520px;left:175px">
 		<s:url id="pageAction" includeContext="false" action="proInvestAction_list" namespace="/">
 		</s:url>
 	    <s:include value="/pageUtil.jsp"></s:include>
+	    </div>
 </body>
 </html>

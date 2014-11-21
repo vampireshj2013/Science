@@ -8,11 +8,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/styles.css">
 <title>专利求购</title>
-
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<style type="text/css">
+    body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;}
+    </style>
 </head>
 <body>
-		<%@ include file="../index.jsp"%>
-		<table id="list">
+<%@ include file="../index.jsp"%>
+	<div class="container" style="width:1000px;position:absolute;top:130px;left:175px">
+		<table class="table table-hover" >
 		<thead>
 			<tr>
 				<td>ID</td>
@@ -42,9 +48,12 @@
 			</tr>
 		</s:iterator>
 		 </table>
+		 </div>
+		 <div class="container" style="width:1000px;position:absolute;top:520px;left:175px">
 		<s:url id="pageAction" includeContext="false" action="patentBuyAction_list" namespace="/">
 		</s:url>
 	    <s:include value="/pageUtil.jsp"></s:include>
+	    </div>
         
 </body>
 </html>
