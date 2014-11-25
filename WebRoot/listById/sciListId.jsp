@@ -55,11 +55,11 @@
   </style>
 </head>
 <body>
-<%@ include file="../index.jsp"%>
+<%@ include file="../head.jsp"%>
 <div class="container" style="width:800px;position:absolute;top:130px;left:250px;">
 
 	<div id="left" >
-		<img id="detail" class="thumbnail" src="../image/2.png" /> 
+		<img id="detail" class="thumbnail" src="./image/2.png" /> 
 	</div>
 	<div id="right">
 	<ul>

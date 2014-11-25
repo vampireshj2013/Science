@@ -23,8 +23,10 @@
 		              
 		</s:select><br/>
 		技术水平:<input name="sciAchievement.tecLevel" type="text" value="<s:property value="sciAchievement.tecLevel" />"><br/>
-		是否国际技术:<input name="sciAchievement.interTec" type="radio" value="<s:property value="sciAchievement.interTec" />">是
-                  <input name="sciAchievement.interTec" type="radio" value="<s:property value="sciAchievement.interTec"/>">否<br/>      
+		是否国际技术:
+				<input name="sciAchievement.interTec" type="radio" value="<s:property value="sciAchievement.interTec" />"/> 是
+				<input name="sciAchievement.interTec" type="radio" value="<s:property value="sciAchievement.interTec" />" /> 否
+                <br/>    
 		预期投资额:<input name="sciAchievement.expectMoney" type="text" value="<s:property value="sciAchievement.expectMoney" />"><br/>
 		关键词:<input name="sciAchievement.searchKey" type="text" value="<s:property value="sciAchievement.searchKey" />"><br/>
 		成果介绍:<input name="sciAchievement.descri" type="text" value="<s:property value="sciAchievement.descri" />"><br/>

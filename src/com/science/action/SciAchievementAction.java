@@ -54,9 +54,13 @@ public class SciAchievementAction extends ActionSupport {
 		
 		return "updateInit";
 	}
+	public String add(){
+		 dao.addSciAchievement(sciAchievement);
+		return NONE;
+	}
 	public String update(){
 		dao.updateSciAchievement(sciAchievement);
-		return NONE;
+		return "success";
 	}
 	public String list(){
 		//设置每页显示的行数

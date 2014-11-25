@@ -7,46 +7,42 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>专利求购</title>
 <link rel="stylesheet" type="text/css" href="./css/styles.css">
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<style type="text/css">
+    body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    }
+    #left{padding:50px;}
+	#right{padding:50px;width:640px}
+	#left{float:left}
+	#right ul li{list-style-type: none;font-family: "微软雅黑";font-size:16px;line-height: 30px}
+	#detail{
+	width:300px;
+	height:300px
+	}
+  </style>
 </head>
 <body>
-<%@ include file="../index.jsp"%>
-	<table id="listId">
-		<thead>
-			<tr>
-				<td>ID</td>
-				<td><s:property value="patentBuy.patentBuyId" /></td>
-			</tr>
-			<tr>
-				<td>标题</td>
-				<td><s:property value="patentBuy.head" /></td>
-			</tr>
-			<tr>
-				<td>所属行业</td>
-				<td><s:property value="patentBuy.industry" /></td>
-			</tr>
-			<tr>
-				<td>求购方式</td>
-				<td><s:property value="patentBuy.buyType.buyTypeDesc" /></td>
-			</tr>
-			<tr>
-				<td>专利类型</td>
-				<td><s:property value="patentBuy.patent.patentDesc" /></td>
-			</tr>
-			<tr>
-				<td>预算金额</td>
-				<td><s:property value="patentBuy.expectMoney" /></td>
-			</tr>
-			<tr>
-				<td>关键词</td>
-				<td><s:property value="patentBuy.searchKey" /></td>
-			</tr>
-			<tr>
-				<td>求购详情</td>
-				<td><s:property value="patentBuy.descri" /></td>
-			</tr>
-	     </thead>	
-		 </table>
-		 
+<%@ include file="../head.jsp"%>
+<div class="container" style="width:800px;position:absolute;top:130px;left:250px;">
+
+	<div id="left" >
+		<img id="detail" class="thumbnail" src="./image/2.png" /> 
+	</div>
+	<div id="right">
+	<ul>
+		<li>ID:&nbsp;&nbsp;<s:property value="patentBuy.patentBuyId" /></li>
+		<li>标题:&nbsp;&nbsp;<s:property value="patentBuy.head" /></li>
+		<li>所属行业:&nbsp;&nbsp;<s:property value="patentBuy.industry" /></li>
+		<li>求购方式:&nbsp;&nbsp;<s:property value="patentBuy.buyType.buyTypeDesc" /></li>
+		<li>专利类型:&nbsp;&nbsp;<s:property value="patentBuy.patent.patentDesc" /></li>
+		<li>预算金额:&nbsp;&nbsp;<s:property value="patentBuy.expectMoney" /></li>
+		<li>关键词:&nbsp;&nbsp;<s:property value="patentBuy.searchKey" /></li>
+		<li>求购详情:&nbsp;&nbsp;<s:property value="patentBuy.descri" /></li>
+	    </ul>
+	 </div>
+	 </div>
 		<s:url id="pageAction" includeContext="false" action="patentBuyAction_listId" namespace="/" >
 		</s:url>
 </body>

@@ -17,7 +17,12 @@
 		技术专长:<input name="tecExpert.major" type="text" value="<s:property value="tecExpert.major" />"><br/>
 		职称:<input name="tecExpert.title" type="text" value="<s:property value="tecExpert.title" />"><br/>
 		职务:<input name="tecExpert.duty" type="text" value="<s:property value="tecExpert.duty" />"><br/>
-		性别:<input name="tecExpert.sex" type="text" value="<s:property value="tecExpert.sex" />"><br/>
+		性别:
+		<input name="tecExpert.sex" type="radio" value="<s:property value="tecExpert.sex" />"
+		<s:if test="#tecExpert.sex=='男'">checked="checked"</s:if>/> 男
+				<input name="tecExpert.sex" type="radio" value="<s:property value="tecExpert.sex" />" 
+				<s:if test="#tecExpert.sex=='女'">checked="checked"</s:if> />女
+                <br/>  
 		学历:<input name="tecExpert.education" type="text" value="<s:property value="tecExpert.education" />"><br/>
 		关键词:<input name="tecExpert.searchKey" type="text" value="<s:property value="tecExpert.searchKey" />"><br/>
 		专家介绍:<input name="tecExpert.descri" type="text" value="<s:property value="tecExpert.descri" />"><br/>

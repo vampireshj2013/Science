@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-<%@ include file="../index.jsp"%>
+<%@ include file="../head.jsp"%>
 	<div class="container" style="width:1000px;position:absolute;top:130px;left:175px">
 		<table class="table table-hover" >
 		<thead>

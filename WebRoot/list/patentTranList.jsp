@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-<%@ include file="../index.jsp"%>
+<%@ include file="../head.jsp"%>
 	<div class="container" style="width:1000px;position:absolute;top:130px;left:175px">
 		<table class="table table-hover" >
 		<thead>
@@ -22,14 +22,14 @@
 				<td>ID</td>
 				<td>标题</td>
 				<td>所属行业</td>
-				<td>专利号</td>
+				<td>专利号</td>	
 				<td>专利类型</td>
 				<td>专利权人</td>
 				<td>基本法律状态</td>
 				<td>合作方式</td>
 				<td>意向转让费</td>
 				<td>关键词</td>
-				<td>成果介绍</td>
+				<td>专利介绍</td>
 			</tr>
 		</thead>
 		<s:iterator value="#result" var="patentTran">
