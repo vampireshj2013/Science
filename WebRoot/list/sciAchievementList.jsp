@@ -54,6 +54,7 @@
 		<div class="container" style="width:1000px;position:absolute;top:520px;left:175px">
 		<s:url id="pageAction" includeContext="false" action="sciAction_list" namespace="/">
 		</s:url>
+	
 	    <s:include value="/pageUtil.jsp"></s:include>
 	    </div>
 </body>

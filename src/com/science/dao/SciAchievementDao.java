@@ -93,9 +93,9 @@ public class SciAchievementDao {
 			throw new RuntimeException("SciAchievement 为空！");
 		}
 		StringBuffer sql = new StringBuffer();
-		sql.append("update sciAchievement set internationalTec=?,");
-		sql.append(" head=?,");
-		sql.append(" technologyLevel = ?,");
+		sql.append("update sciAchievement set head=?,");
+		sql.append("interTec=?,");
+		sql.append(" tecLevel = ?,");
 		sql.append(" transferFee = ?,");
 		sql.append(" expectMoney = ?,");
 		sql.append(" searchKey =?,");
@@ -104,10 +104,11 @@ public class SciAchievementDao {
 		sql.append(" descri =?,");
 		sql.append(" attachment=?,");
 		sql.append(" userId=?,");
-		sql.append(" cooperationId=?,");
 		sql.append(" shopId=?,");
-		sql.append(" maturityId=?,");
-		sql.append(" industryId=?");
+		sql.append(" industryId=?,");
+		sql.append(" cooperationId=?,");
+		sql.append(" maturityId=?");
+		
 		
 		sql.append(" where sciAchievementId = "+sciAchievement.getSciAchievementId());
 		try {

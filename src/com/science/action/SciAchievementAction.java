@@ -56,11 +56,15 @@ public class SciAchievementAction extends ActionSupport {
 	}
 	public String add(){
 		 dao.addSciAchievement(sciAchievement);
-		return NONE;
+		return "success";
 	}
 	public String update(){
 		dao.updateSciAchievement(sciAchievement);
-		return "success";
+		return "success2";
+	}
+	public String delete(){
+		dao.deleteSciAchievement(id);
+		return "success2";
 	}
 	public String list(){
 		//设置每页显示的行数
@@ -78,5 +82,17 @@ public class SciAchievementAction extends ActionSupport {
 		List<Cooperation> cooperations=cooperationDao.searchAllCooperation();
 		ActionContext.getContext().put("cooperations", cooperations);
 		return "listId";
+	}
+	public String listByUser(){
+		//sciAchievement = dao.inquerySciAchievementById(id);
+		pageUtil.setPageSize(10);
+		List<SciAchievement> result = dao.searchSciAchievementByCondition(sciAchievement, pageUtil.getIndex(), pageUtil.getPageSize());
+		pageUtil.setRecordCount(dao.countSciAchievementByCondition(sciAchievement));
+		List<Maturity> maturitys=maturityDao.searchAllMaturity();
+		ActionContext.getContext().put("maturitys", maturitys);
+		List<Cooperation> cooperations=cooperationDao.searchAllCooperation();
+		ActionContext.getContext().put("cooperations", cooperations);
+		ActionContext.getContext().put("result", result);
+		return "listUser";
 	}
 }

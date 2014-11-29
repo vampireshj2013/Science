@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>技术专家</title>
 </head>
 <body>
 	<form id="form" method="post" action="${basePath }tecExpertAction_update">
@@ -18,10 +18,10 @@
 		职称:<input name="tecExpert.title" type="text" value="<s:property value="tecExpert.title" />"><br/>
 		职务:<input name="tecExpert.duty" type="text" value="<s:property value="tecExpert.duty" />"><br/>
 		性别:
-		<input name="tecExpert.sex" type="radio" value="<s:property value="tecExpert.sex" />"
-		<s:if test="#tecExpert.sex=='男'">checked="checked"</s:if>/> 男
-				<input name="tecExpert.sex" type="radio" value="<s:property value="tecExpert.sex" />" 
-				<s:if test="#tecExpert.sex=='女'">checked="checked"</s:if> />女
+		<input name="tecExpert.sex" type="radio" value="男"
+		<s:if test='tecExpert.sex=="男"'>checked="checked"</s:if>/> 男
+				<input name="tecExpert.sex" type="radio" value="女" 
+				<s:if test='tecExpert.sex=="女"'>checked="checked"</s:if> />女
                 <br/>  
 		学历:<input name="tecExpert.education" type="text" value="<s:property value="tecExpert.education" />"><br/>
 		关键词:<input name="tecExpert.searchKey" type="text" value="<s:property value="tecExpert.searchKey" />"><br/>

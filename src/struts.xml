@@ -26,13 +26,16 @@
         <action name="sciAction_*" class="com.science.action.SciAchievementAction" method="{1}">
             <result name="updateInit">/update/update_SciAchievement.jsp</result>
             <result name="list">/list/sciAchievementList.jsp</result>
-             <result name="listId">/listById/sciListId.jsp</result>
-              <result name="success">/structs.jsp</result>
+            <result name="listUser">/manage/sciManage.jsp</result>
+            <result name="listId">/listById/sciListId.jsp</result>
+            <result name="success">/inc/success.jsp</result>
+            <result name="success2">/inc/success2.jsp</result>
         </action>
          <action name="patentTranAction_*" class="com.science.action.PatentTranAction" method="{1}">
             <result name="success">/structs.jsp</result>
             <result name="updateInit">/update/update_PatentTran.jsp</result> 
             <result name="list">/list/patentTranList.jsp</result>
+         
             <result name="listId">/listById/patentTranListId.jsp</result>
              <result name="success">/structs.jsp</result>
          </action>
@@ -69,6 +72,9 @@
          <action name="city_*" class="com.science.action.CityActionDemo" method="{1}">
            <result name="success">/list/cityDemo.jsp</result>
            <result name="cityListInit">/list/cityDemo2.jsp</result>
+        </action>
+         <action name="user_*" class="com.science.action.UserAction" method="{1}">
+           <result name="userInit">/infoManage.jsp</result>
         </action>
     </package>
 

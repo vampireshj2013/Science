@@ -53,6 +53,9 @@ body {
 			                   <button type="button" class="search-btn" onclick="search()"><i class="icon-search icon-white"> &nbsp;</i></button>
 							</form>
 						</li>
+						<li class="">
+				                <s:a href="user_userInit">个人中心</s:a>
+				 </li>	
 					</ul>
 				</div>
 			</div>
